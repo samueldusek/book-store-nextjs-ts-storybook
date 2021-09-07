@@ -2,14 +2,14 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { Fragment } from "react";
 
-const Home: NextPage = () => {
+const AuthorDetailPage: NextPage = () => {
   return (
     <Fragment>
       <Head>
-        <title>Book Store</title>
+        <title>Author Detail Page</title>
       </Head>
     </Fragment>
   );
 };
 
-export default Home;
+export default AuthorDetailPage;

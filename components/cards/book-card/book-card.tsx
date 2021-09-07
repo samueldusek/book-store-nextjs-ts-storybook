@@ -9,7 +9,7 @@ interface BookCardProps {
   title: string;
   cover: string;
   datePublished: string;
-  isbn: string;
+  isbn: number;
   author: {
     id: string;
     name: string;
