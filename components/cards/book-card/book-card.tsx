@@ -33,8 +33,8 @@ const BookCard = ({
         <Image
           src={cover}
           alt={title}
-          width={141}
-          height={220}
+          width={136}
+          height={212}
           layout="responsive"
         />
       </div>
@@ -47,7 +47,7 @@ const BookCard = ({
         </h5>
         <footer className={classes.footer}>
           <div>
-            <time>{format(new Date(datePublished), "do 'of' LLLL yyyy")}</time>
+            <time>{format(new Date(datePublished), "LLLL d yyyy")}</time>
             <p className={classes.isbn}>{isbn}</p>
           </div>
           <Link href={`/books/${id}`}>

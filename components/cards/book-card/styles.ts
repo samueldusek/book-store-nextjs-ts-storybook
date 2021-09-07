@@ -9,6 +9,8 @@ export const styles = {
     padding: "1.5rem",
     height: "100%",
     width: "100%",
+    maxWidth: "500px",
+    maxHeight: "250px",
   },
   imageBox: {
     height: "100%",
