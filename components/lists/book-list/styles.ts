@@ -8,7 +8,7 @@ export type BookListStylesProps = BookListProps;
 export type BookListStyles = Styles<BookListClassNames, BookListStylesProps>;
 
 const getStyles: BookListStyles = {
-  list: ({ cols = "2" }: BookListStylesProps) => ({
+  list: ({ cols = 2 }: BookListStylesProps) => ({
     display: "grid",
     gridTemplateColumns: "repeat(" + cols + ", 1fr)",
     gridAutoRows: "auto",

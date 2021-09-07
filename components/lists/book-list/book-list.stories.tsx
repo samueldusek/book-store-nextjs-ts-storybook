@@ -7,17 +7,23 @@ export default {
   title: "Lists/BookList",
   component: BookList,
   argTypes: {
+    maxBooks: {
+      control: {
+        type: "number",
+      },
+      description: "The number of books to display in the list.",
+    },
+    cols: {
+      control: {
+        type: "number",
+      },
+      description: "The number of columns in the list.",
+    },
     books: {
       control: {
         type: "object",
       },
       description: "The array of books to be listed.",
-    },
-    cols: {
-      control: {
-        type: "text",
-      },
-      description: "The number of columns in the list.",
     },
   },
 } as ComponentMeta<typeof BookList>;
@@ -39,11 +45,13 @@ TwoColumnsList.args = {
       name: "Dummy Author",
     },
   }),
-  cols: "2",
+  cols: 2,
+  maxBooks: 10,
 };
 
 export const OneColumnList = Template.bind({});
 OneColumnList.args = {
   ...TwoColumnsList.args,
-  cols: "1",
+  cols: 1,
+  maxBooks: 10,
 };

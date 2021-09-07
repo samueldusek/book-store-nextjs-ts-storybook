@@ -3,14 +3,19 @@ import useBookListStyles, { BookListClasses } from "./styles";
 
 export type BookListProps = {
   books: any[];
-  cols: string;
+  maxBooks?: number;
+  cols?: number;
 };
 
-const BookList = ({ books, ...props }: BookListProps) => {
+const BookList = ({
+  books,
+  maxBooks = books.length,
+  ...props
+}: BookListProps) => {
   const classes: BookListClasses = useBookListStyles({ ...props });
   return (
     <div className={classes.list}>
-      {books.map((book) => (
+      {books.slice(0, maxBooks).map((book) => (
         <BookCard
           key={book.id}
           id={book.id}
