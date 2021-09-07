@@ -1,4 +1,21 @@
-export const styles = {
+import { Classes, Styles } from "jss";
+import { createUseStyles } from "react-jss";
+import { BookCardProps } from "./book-card";
+
+export type BookCardClassNames =
+  | "Card"
+  | "imageBox"
+  | "textBox"
+  | "heading"
+  | "author"
+  | "footer"
+  | "isbn"
+  | "link";
+export type BookCardClasses = Classes<BookCardClassNames>;
+export type BookCardStylesProps = BookCardProps;
+export type BookCardStyles = Styles<BookCardClassNames, BookCardStylesProps>;
+
+const getStyles: BookCardStyles = {
   Card: {
     borderRadius: "52px",
     backgroundColor: "#f5f5f5",
@@ -60,3 +77,9 @@ export const styles = {
     },
   },
 };
+
+const useBookCardStyles: (data?: any) => BookCardClasses = createUseStyles(
+  getStyles
+);
+
+export default useBookCardStyles;

@@ -1,4 +1,16 @@
-export const styles = {
+import { Classes, Styles } from "jss";
+import { createUseStyles } from "react-jss";
+import { AuthorCardProps } from "./author-card";
+
+export type AuthorCardClassNames = "Card" | "image" | "name";
+export type AuthorCardClasses = Classes<AuthorCardClassNames>;
+export type AuthorCardStylesProps = AuthorCardProps;
+export type AuthorCardStyles = Styles<
+  AuthorCardClassNames,
+  AuthorCardStylesProps
+>;
+
+const getStyles = {
   Card: {
     width: "100%",
     maxWidth: "100px",
@@ -26,3 +38,9 @@ export const styles = {
     textAlign: "center",
   },
 };
+
+const useAuthorCardStyles: (data?: any) => AuthorCardClasses = createUseStyles(
+  getStyles
+);
+
+export default useAuthorCardStyles;

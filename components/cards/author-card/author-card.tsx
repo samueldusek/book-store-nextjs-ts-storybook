@@ -1,18 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
-import { createUseStyles } from "react-jss";
-import { styles } from "./styles";
+import useAuthorCardStyles from "./styles";
 
-interface AuthorCardProps {
+export type AuthorCardProps = {
   id: string;
   name: string;
   photo: string;
-}
-
-const useStyles = createUseStyles(styles);
+};
 
 const AuthorCard = ({ id, name, photo }: AuthorCardProps) => {
-  const classes = useStyles();
+  const classes = useAuthorCardStyles();
   return (
     <div className={classes.Card}>
       <Link href={`/authors/${id}`}>

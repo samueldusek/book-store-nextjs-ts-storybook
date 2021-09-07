@@ -1,10 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { createUseStyles } from "react-jss";
-import { styles } from "./styles";
+import useBookCardStyles from "./styles";
 import { format } from "date-fns";
 
-interface BookCardProps {
+export type BookCardProps = {
   id: string;
   title: string;
   cover: string;
@@ -14,9 +13,7 @@ interface BookCardProps {
     id: string;
     name: string;
   };
-}
-
-const useStyles = createUseStyles(styles);
+};
 
 const BookCard = ({
   id,
@@ -26,7 +23,7 @@ const BookCard = ({
   isbn,
   author,
 }: BookCardProps) => {
-  const classes = useStyles();
+  const classes = useBookCardStyles();
   return (
     <div className={classes.Card}>
       <div className={classes.imageBox}>
