@@ -5,52 +5,52 @@ import { styles } from "./styles";
 import { format } from "date-fns";
 
 interface BookCardProps {
-  /**
-   * Book
-   */
-  book: {
+  id: string;
+  title: string;
+  cover: string;
+  datePublished: string;
+  isbn: string;
+  author: {
     id: string;
-    title: string;
-    cover: string;
-    datePublished: string;
-    isbn: string;
-    author: {
-      id: string;
-      name: string;
-    };
+    name: string;
   };
 }
 
 const useStyles = createUseStyles(styles);
 
-const BookCard = ({ book }: BookCardProps) => {
+const BookCard = ({
+  id,
+  title,
+  cover,
+  datePublished,
+  isbn,
+  author,
+}: BookCardProps) => {
   const classes = useStyles();
   return (
     <div className={classes.Card}>
       <div className={classes.imageBox}>
         <Image
-          src={book.cover}
-          alt={book.title}
+          src={cover}
+          alt={title}
           width={141}
           height={220}
           layout="responsive"
         />
       </div>
       <div className={classes.textBox}>
-        <h3 className={classes.heading}>{book.title}</h3>
+        <h3 className={classes.heading}>{title}</h3>
         <h5 className={classes.author}>
-          <Link href={`/authors/${book.author.id}`}>
-            <a>{book.author.name}</a>
+          <Link href={`/authors/${author.id}`}>
+            <a>{author.name}</a>
           </Link>
         </h5>
         <footer className={classes.footer}>
           <div>
-            <time>
-              {format(new Date(book.datePublished), "do 'of' LLLL yyyy")}
-            </time>
-            <p className={classes.isbn}>{book.isbn}</p>
+            <time>{format(new Date(datePublished), "do 'of' LLLL yyyy")}</time>
+            <p className={classes.isbn}>{isbn}</p>
           </div>
-          <Link href={`/books/${book.id}`}>
+          <Link href={`/books/${id}`}>
             <a className={classes.link}>MORE</a>
           </Link>
         </footer>

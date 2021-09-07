@@ -1,11 +1,12 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import BookCard from "./index";
+import BookCard from "./book-card";
 
 export default {
-  title: "BookCard",
+  title: "Cards/BookCard",
   component: BookCard,
+  argTypes: {},
   decorators: [
     (Story) => (
       <div style={{ width: "500px", height: "250px" }}>
@@ -19,17 +20,15 @@ const Template: ComponentStory<typeof BookCard> = (args) => (
   <BookCard {...args} />
 );
 
-export const Primary = Template.bind({});
-Primary.args = {
-  book: {
+export const LightTheme = Template.bind({});
+LightTheme.args = {
+  id: "1",
+  title: "Dummy Book",
+  cover: "/images/books/1.png",
+  isbn: "4294967295",
+  datePublished: "2016-02-26",
+  author: {
     id: "1",
-    title: "Dummy Book",
-    cover: "/images/books/1.png",
-    isbn: "4294967295",
-    datePublished: "2016-02-26",
-    author: {
-      id: "1",
-      name: "Dummy Author",
-    },
+    name: "Dummy Author",
   },
 };
