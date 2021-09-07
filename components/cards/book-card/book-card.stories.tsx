@@ -48,7 +48,12 @@ export default {
   },
   decorators: [
     (Story) => (
-      <div style={{ width: "500px", height: "250px" }}>
+      <div
+        style={{
+          width: "500px",
+          height: "250px",
+        }}
+      >
         <Story />
       </div>
     ),

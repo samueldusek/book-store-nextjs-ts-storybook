@@ -36,19 +36,21 @@ const BookCard = ({
         />
       </div>
       <div className={classes.textBox}>
-        <h3 className={classes.heading}>{title}</h3>
-        <h5 className={classes.author}>
-          <Link href={`/authors/${author.id}`}>
-            <a>{author.name}</a>
-          </Link>
-        </h5>
-        <footer className={classes.footer}>
+        <header>
+          <h3>{title}</h3>
+          <h5>
+            <Link href={`/authors/${author.id}`}>
+              <a>{author.name}</a>
+            </Link>
+          </h5>
+        </header>
+        <footer>
           <div>
             <time>{format(new Date(datePublished), "LLLL d yyyy")}</time>
-            <p className={classes.isbn}>{isbn}</p>
+            <p>{isbn}</p>
           </div>
           <Link href={`/books/${id}`}>
-            <a className={classes.link}>MORE</a>
+            <a>MORE</a>
           </Link>
         </footer>
       </div>
