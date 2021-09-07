@@ -1,18 +1,62 @@
-import { FC } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { createUseStyles } from "react-jss";
+import { styles } from "./styles";
+import { format } from "date-fns";
 
 interface BookCardProps {
-    /**
-     * BookCard title
-     */
+  /**
+   * Book
+   */
+  book: {
+    id: string;
     title: string;
-  }
+    cover: string;
+    datePublished: string;
+    isbn: string;
+    author: {
+      id: string;
+      name: string;
+    };
+  };
+}
 
-const BookCard = ({title}:BookCardProps) => {
-    return(
-        <div>
-            <h3>{title}</h3>
-        </div>
-    )
+const useStyles = createUseStyles(styles);
+
+const BookCard = ({ book }: BookCardProps) => {
+  const classes = useStyles();
+  return (
+    <div className={classes.Card}>
+      <div className={classes.imageBox}>
+        <Image
+          src={book.cover}
+          alt={book.title}
+          width={141}
+          height={220}
+          layout="responsive"
+        />
+      </div>
+      <div className={classes.textBox}>
+        <h3 className={classes.heading}>{book.title}</h3>
+        <h5 className={classes.author}>
+          <Link href={`/authors/${book.author.id}`}>
+            <a>{book.author.name}</a>
+          </Link>
+        </h5>
+        <footer className={classes.footer}>
+          <div>
+            <time>
+              {format(new Date(book.datePublished), "do 'of' LLLL yyyy")}
+            </time>
+            <p className={classes.isbn}>{book.isbn}</p>
+          </div>
+          <Link href={`/books/${book.id}`}>
+            <a className={classes.link}>MORE</a>
+          </Link>
+        </footer>
+      </div>
+    </div>
+  );
 };
 
 export default BookCard;
