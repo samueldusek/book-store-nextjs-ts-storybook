@@ -1,4 +1,4 @@
-import React from "react";
+import Link from "next/link";
 import useFooterStyles from "./styles";
 
 export type FooterProps = {};
@@ -8,7 +8,11 @@ function Footer({}: FooterProps) {
   return (
     <footer className={classes.Footer}>
       <p>
-        Created by <a href="https://github.com/samueldusek">Samuel Dušek</a>.
+        Created by{" "}
+        <Link href="https://github.com/samueldusek">
+          <a>Samuel Dušek</a>
+        </Link>
+        .
       </p>
     </footer>
   );
