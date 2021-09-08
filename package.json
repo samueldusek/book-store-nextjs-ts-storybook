@@ -11,8 +11,15 @@
     "build-storybook": "build-storybook -s ./public,./styles"
   },
   "dependencies": {
+    "@apollo/client": "^3.4.10",
+    "apollo-link": "^1.2.14",
+    "apollo-link-json-api": "^0.1.2",
     "date-fns": "^2.23.0",
+    "graphql": "^15.5.3",
+    "graphql-anywhere": "^4.2.7",
+    "humps": "^2.0.1",
     "next": "11.1.2",
+    "qs": "^6.10.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-jss": "^10.7.1"
