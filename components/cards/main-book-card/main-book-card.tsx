@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import ChapterList from "../../lists/chapter-list/chapter-list";
 import useMainBookCardStyles from "./styles";
 import { format } from "date-fns";
 
@@ -57,6 +58,8 @@ const MainBookCard = ({
             </h2>
           </header>
           <footer>
+            <h4>Chapters</h4>
+            <ChapterList chapters={chapters} />
             <h4>Published</h4>
             <time>{datePublishedFormatted}</time>
             <h4>ISBN</h4>
