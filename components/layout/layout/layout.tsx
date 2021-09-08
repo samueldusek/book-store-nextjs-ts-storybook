@@ -12,7 +12,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <Fragment>
       <Navbar />
-      <main className={classes.page}>{children}</main>
+      {children}
       <Footer />
       <style global jsx>{`
         div#__next {

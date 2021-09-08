@@ -15,6 +15,12 @@ const getStyles: BookListStyles = {
     columnGap: "1.5rem",
     rowGap: "1.5rem",
     maxWidth: "1000px",
+    height: "min-content",
+    "& h2": {
+      fontSize: "2rem",
+      marginTop: "1rem",
+      marginBottom: "0rem",
+    },
   }),
 };
 

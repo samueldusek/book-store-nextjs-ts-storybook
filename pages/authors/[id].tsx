@@ -4,18 +4,27 @@ import { Fragment } from "react";
 
 import { GET_AUTHOR } from "../../queries/author";
 import client from "../../apollo-client";
+import LayoutDetailPage from "../../components/layout/layout-detail-page/layout-detail-page";
 import MainAuthorCard from "../../components/cards/main-author-card/main-author-card";
 import BookList from "../../components/lists/book-list/book-list";
 
 const AuthorDetailPage: NextPage = ({ author }: any) => {
   const title = `${author.name} details`;
+  const listTitle = `${author.name} books`;
   return (
     <Fragment>
       <Head>
         <title>{title}</title>
       </Head>
-      <MainAuthorCard {...author} />
-      <BookList books={author.books} cols={1} />
+      <LayoutDetailPage>
+        <MainAuthorCard {...author} />
+        <BookList
+          books={author.books}
+          cols={1}
+          hasTitle={true}
+          listTitle={listTitle}
+        />
+      </LayoutDetailPage>
     </Fragment>
   );
 };

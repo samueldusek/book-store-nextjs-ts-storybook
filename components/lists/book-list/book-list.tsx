@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import BookCard from "../../cards/book-card/book-card";
 import useBookListStyles, { BookListClasses } from "./styles";
 
@@ -5,15 +6,20 @@ export type BookListProps = {
   books: any[];
   maxBooks?: number;
   cols?: number;
+  hasTitle?: boolean;
+  listTitle?: string;
 };
 
 const BookList = ({
   books,
   maxBooks = books.length,
+  hasTitle = false,
+  listTitle = "",
   ...props
 }: BookListProps) => {
   const classes: BookListClasses = useBookListStyles({ ...props });
-  return (
+
+  const list = (
     <div className={classes.list}>
       {books.slice(0, maxBooks).map((book) => (
         <BookCard
@@ -28,6 +34,17 @@ const BookList = ({
       ))}
     </div>
   );
+
+  if (hasTitle) {
+    return (
+      <div>
+        <h2>{listTitle}</h2>
+        {list}
+      </div>
+    );
+  }
+
+  return <Fragment>{list}</Fragment>;
 };
 
 export default BookList;

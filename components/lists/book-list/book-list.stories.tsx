@@ -19,6 +19,18 @@ export default {
       },
       description: "The number of columns in the list.",
     },
+    hasTitle: {
+      control: {
+        type: "boolean",
+      },
+      description: "Controls whether the book list has or has not a title.",
+    },
+    listTitle: {
+      control: {
+        type: "text",
+      },
+      description: "Title of the list.",
+    },
     books: {
       control: {
         type: "object",
@@ -47,6 +59,7 @@ TwoColumnsList.args = {
   }),
   cols: 2,
   maxBooks: 10,
+  hasTitle: false,
 };
 
 export const OneColumnList = Template.bind({});
@@ -54,4 +67,5 @@ OneColumnList.args = {
   ...TwoColumnsList.args,
   cols: 1,
   maxBooks: 10,
+  hasTitle: false,
 };

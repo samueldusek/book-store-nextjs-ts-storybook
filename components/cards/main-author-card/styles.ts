@@ -18,35 +18,36 @@ const getStyles: MainAuthorCardStyles = {
   MainCard: {
     "& h1": {
       fontSize: "3rem",
-      margin: "1.5rem 0rem",
+      margin: "0rem",
+      marginBottom: "1.5rem",
     },
     maxWidth: "800px",
+    width: "100%",
   },
   authorContent: {
     display: "flex",
     flexDirection: "row",
-    gap: "1.5rem",
   },
   imageBox: {
-    flexGrow: "4",
-    overflow: "hidden",
+    width: "60%",
     "& img": {
-      filter: "drop-shadow(10px 10px 10px grey)",
+      filter: "drop-shadow(2px 2px 10px grey)",
     },
   },
   textBox: {
-    flexGrow: "1",
+    width: "38%",
+    marginLeft: "2%",
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
     "& header": {
-      "& h2": {
+      "& h3": {
         fontSize: "1.6rem",
         margin: "0.4rem 0",
       },
     },
     "& footer": {
-      "& h3, time": {
+      "& time": {
         display: "block",
         fontSize: "1.2rem",
         margin: "0rem",
