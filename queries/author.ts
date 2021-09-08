@@ -2,8 +2,7 @@ import { gql } from "@apollo/client";
 
 export const GET_ALL_AUTHORS = gql`
   query allAuthors($page: String!) {
-    authors(page: $page)
-      @jsonapi(path: "/v2/authors?page[number]={args.page}") {
+    authors(page: $page) @jsonapi(path: "/authors?page[number]={args.page}") {
       id
       name
     }
@@ -12,7 +11,7 @@ export const GET_ALL_AUTHORS = gql`
 
 export const GET_AUTHOR = gql`
   query getAuthor($id: String!) {
-    author(id: $id) @jsonapi(path: "/v2/authors/{args.id}?include=books") {
+    author(id: $id) @jsonapi(path: "/authors/{args.id}?include=books") {
       id
       name
       birthplace

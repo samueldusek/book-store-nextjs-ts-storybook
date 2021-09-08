@@ -75,7 +75,7 @@ export async function getStaticProps(context: any) {
       book: {
         id: book.id,
         title: book.title,
-        cover: `/images/books/${id % 10}.png`,
+        cover: `/images/books/${(book.id % 10) + 1}.png`,
         datePublished: book.date_published,
         isbn: book.isbn,
         author: book.author,
