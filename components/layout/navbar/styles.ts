@@ -9,7 +9,9 @@ export type NavbarStyles = Styles<NavbarClassNames, NavbarStylesProps>;
 
 const getStyles = {
   Navbar: {
-    width: "100%",
+    width: "98%",
+    margin: "auto",
+    maxWidth: "1400px",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",

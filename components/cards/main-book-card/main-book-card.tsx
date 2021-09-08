@@ -30,10 +30,7 @@ const MainBookCard = ({
   chapters,
 }: MainBookCardProps) => {
   const classes = useMainBookCardStyles();
-  const datePublishedFormatted = format(
-    new Date(datePublished),
-    "do 'of' LLLL yyyy"
-  );
+  const datePublishedFormatted = format(new Date(datePublished), "LLLL d yyyy");
   const authorsLink = `/authors/${author.id}`;
   return (
     <section className={classes.MainCard}>

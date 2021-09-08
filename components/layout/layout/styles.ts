@@ -10,6 +10,9 @@ export type LayoutStyles = Styles<LayoutClassNames, LayoutStylesProps>;
 const getStyles = {
   page: {
     flexGrow: "1",
+    width: "96%",
+    margin: "auto",
+    maxWidth: "1200px",
   },
 };
 

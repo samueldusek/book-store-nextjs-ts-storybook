@@ -27,11 +27,11 @@ type BookDetailPageProps = {
 };
 
 const BookDetailPage: NextPage = ({ book }: any) => {
-  console.log(book);
+  const title = `${book.title} details`;
   return (
     <Fragment>
       <Head>
-        <title>Book Detail Page</title>
+        <title>{title}</title>
       </Head>
       <MainBookCard
         id={book.id}
