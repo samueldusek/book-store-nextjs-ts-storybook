@@ -9,7 +9,7 @@ import LayoutDetailPage from "../../components/layout/layout-detail-page/layout-
 import { GET_BOOK } from "../../queries/book";
 import client from "../../apollo-client";
 import MainBookCard from "../../components/cards/main-book-card/main-book-card";
-import RandomBookList from "../../components/lists/random-book-list/random-book-list";
+import FetchedBookList from "../../components/lists/fetched-book-list/fetched-book-list";
 import { formatBook, Book } from "../../helpers/books";
 
 const BookDetailPage: NextPage<{ book: Book }> = ({ book }) => {
@@ -21,7 +21,13 @@ const BookDetailPage: NextPage<{ book: Book }> = ({ book }) => {
       </Head>
       <LayoutDetailPage>
         <MainBookCard {...book} />
-        <RandomBookList />
+        <FetchedBookList
+          isRandom={true}
+          hasTitle={true}
+          listTitle="More books for you"
+          cols={1}
+          maxBooks={4}
+        />
       </LayoutDetailPage>
     </Fragment>
   );

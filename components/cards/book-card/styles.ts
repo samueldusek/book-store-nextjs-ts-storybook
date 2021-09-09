@@ -20,7 +20,7 @@ const getStyles: BookCardStyles = {
     width: "100%",
     maxWidth: "500px",
     maxHeight: "250px",
-    minWidth: "400px",
+    minWidth: "360px",
   },
   imageBox: {
     height: "100%",

@@ -8,21 +8,28 @@ import { getRandInteger } from "../../../helpers/utils";
 
 import { formatAuthors } from "../../../helpers/authors";
 
-const RandomAuthorList = () => {
+type FetchedAuthorListProps = {
+  isRandom?: boolean;
+  page?: number;
+  cols?: number;
+  maxAuthors?: number;
+  hasTitle?: boolean;
+  listTitle?: string;
+};
+
+const FetchedAuthorList = ({
+  isRandom = false,
+  page = 1,
+  ...props
+}: FetchedAuthorListProps) => {
+  const pageToLoad = isRandom ? getRandInteger(1, 5) : page;
   const { data, loading, error } = useQuery(GET_ALL_AUTHORS, {
-    variables: { page: getRandInteger(1, 5) },
+    variables: { page: pageToLoad },
   });
   if (loading) return <p>Loading...</p>;
   const { authors } = data;
   const formattedAuthors = formatAuthors(authors);
-  return (
-    <AuthorList
-      authors={formattedAuthors}
-      cols={5}
-      hasTitle={true}
-      listTitle="More authors to discover"
-    />
-  );
+  return <AuthorList authors={formattedAuthors} {...props} />;
 };
 
-export default RandomAuthorList;
+export default FetchedAuthorList;

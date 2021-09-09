@@ -11,17 +11,17 @@ export type AuthorListStyles = Styles<
 >;
 
 const getStyles: AuthorListStyles = {
-  list: ({ cols = 2 }: AuthorListStylesProps) => ({
-    gridColumnStart: "span 2",
+  list: ({ cols = 2, gridCols = 1 }: AuthorListStylesProps) => ({
+    gridColumnStart: "span " + gridCols,
     display: "grid",
     gridTemplateColumns: "repeat(" + cols + ", 1fr)",
     justifyItems: "center",
     gridGap: "1rem",
     height: "min-content",
   }),
-  listWrapper: {
-    gridColumnStart: "span 2",
-  },
+  listWrapper: ({ gridCols = 1 }: AuthorListStylesProps) => ({
+    gridColumnStart: "span " + gridCols,
+  }),
 };
 
 const useAuthorListStyles: (data?: any) => AuthorListClasses = createUseStyles(
