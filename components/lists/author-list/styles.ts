@@ -2,7 +2,7 @@ import { Classes, Styles } from "jss";
 import { createUseStyles } from "react-jss";
 import { AuthorListProps } from "./author-list";
 
-export type AuthorListClassNames = "list";
+export type AuthorListClassNames = "list" | "listWrapper";
 export type AuthorListClasses = Classes<AuthorListClassNames>;
 export type AuthorListStylesProps = AuthorListProps;
 export type AuthorListStyles = Styles<
@@ -19,6 +19,9 @@ const getStyles: AuthorListStyles = {
     gridGap: "1rem",
     height: "min-content",
   }),
+  listWrapper: {
+    gridColumnStart: "span 2",
+  },
 };
 
 const useAuthorListStyles: (data?: any) => AuthorListClasses = createUseStyles(

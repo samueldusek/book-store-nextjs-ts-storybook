@@ -1,4 +1,4 @@
-export type Book = {
+export type BookShort = {
   id: string;
   title: string;
   cover: string;
@@ -8,6 +8,9 @@ export type Book = {
     id: string;
     name: string;
   };
+};
+
+export type Book = BookShort & {
   chapters: {
     id: string;
     title: string;

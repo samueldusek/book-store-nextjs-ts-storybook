@@ -4,10 +4,7 @@ export type AuthorShort = {
   photo: string;
 };
 
-export type Author = {
-  id: string;
-  name: string;
-  photo: string;
+export type Author = AuthorShort & {
   birthplace: string;
   dateOfBirth: string;
   dateOfDeath: string;

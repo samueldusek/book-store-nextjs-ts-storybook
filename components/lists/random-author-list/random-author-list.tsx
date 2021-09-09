@@ -15,7 +15,14 @@ const RandomAuthorList = () => {
   if (loading) return <p>Loading...</p>;
   const { authors } = data;
   const formattedAuthors = formatAuthors(authors);
-  return <AuthorList authors={formattedAuthors} cols={5} />;
+  return (
+    <AuthorList
+      authors={formattedAuthors}
+      cols={5}
+      hasTitle={true}
+      listTitle="More authors to discover"
+    />
+  );
 };
 
 export default RandomAuthorList;

@@ -2,8 +2,10 @@ import { Fragment } from "react";
 import BookCard from "../../cards/book-card/book-card";
 import useBookListStyles, { BookListClasses } from "./styles";
 
+import { BookShort } from "../../../helpers/books";
+
 export type BookListProps = {
-  books: any[];
+  books: BookShort[];
   maxBooks?: number;
   cols?: number;
   hasTitle?: boolean;
