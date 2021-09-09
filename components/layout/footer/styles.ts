@@ -16,6 +16,7 @@ const getStyles = {
     "& a": {
       color: "grey",
     },
+    marginTop: "1rem",
   },
 };
 

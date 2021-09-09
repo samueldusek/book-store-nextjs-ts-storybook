@@ -11,6 +11,7 @@ const getStyles = {
   Navbar: {
     width: "98%",
     margin: "auto",
+    marginBottom: "1rem",
     maxWidth: "1400px",
     display: "flex",
     justifyContent: "space-between",
@@ -20,6 +21,7 @@ const getStyles = {
       letterSpacing: "0.1rem",
     },
     "& a": {
+      marginLeft: "1.5rem",
       color: "grey",
       letterSpacing: "0.1rem",
       textDecoration: "none",
@@ -27,6 +29,9 @@ const getStyles = {
       "&:hover": {
         color: "black",
       },
+    },
+    "& .active": {
+      color: "black",
     },
   },
 };
