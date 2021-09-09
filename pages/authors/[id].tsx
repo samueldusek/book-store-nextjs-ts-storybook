@@ -9,6 +9,7 @@ import LayoutDetailPage from "../../components/layout/layout-detail-page/layout-
 import MainAuthorCard from "../../components/cards/main-author-card/main-author-card";
 import BookList from "../../components/lists/book-list/book-list";
 import { formatAuthor, Author } from "../../helpers/authors";
+import RandomAuthorList from "../../components/lists/random-author-list/random-author-list";
 
 const AuthorDetailPage: NextPage<{ author: Author }> = ({ author }) => {
   const title = `${author.name} details`;
@@ -26,6 +27,7 @@ const AuthorDetailPage: NextPage<{ author: Author }> = ({ author }) => {
           hasTitle={true}
           listTitle={listTitle}
         />
+        <RandomAuthorList />
       </LayoutDetailPage>
     </Fragment>
   );

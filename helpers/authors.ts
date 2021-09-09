@@ -1,3 +1,9 @@
+export type AuthorShort = {
+  id: string;
+  name: string;
+  photo: string;
+};
+
 export type Author = {
   id: string;
   name: string;
@@ -22,7 +28,7 @@ export const formatAuthor = (author: any): Author => {
   return {
     id: author.id,
     name: author.name,
-    photo: `/images/authors/${author.id % 10}.svg`,
+    photo: `/images/authors/${(author.id % 10) + 1}.svg`,
     birthplace: author.birthplace,
     dateOfBirth: author.date_of_birth,
     dateOfDeath: author.date_of_death,
@@ -40,4 +46,14 @@ export const formatAuthor = (author: any): Author => {
       };
     }),
   };
+};
+
+export const formatAuthors = (authors: any[]): AuthorShort[] => {
+  return authors.map((author) => {
+    return {
+      id: author.id,
+      name: author.name,
+      photo: `/images/authors/${(author.id % 10) + 1}.svg`,
+    };
+  });
 };

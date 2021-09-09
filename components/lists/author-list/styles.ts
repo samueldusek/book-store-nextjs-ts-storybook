@@ -12,12 +12,12 @@ export type AuthorListStyles = Styles<
 
 const getStyles: AuthorListStyles = {
   list: ({ cols = 2 }: AuthorListStylesProps) => ({
+    gridColumnStart: "span 2",
     display: "grid",
     gridTemplateColumns: "repeat(" + cols + ", 1fr)",
-    gridAutoRows: "auto",
-    columnGap: "1rem",
-    rowGap: "1rem",
-    maxWidth: "300px",
+    justifyItems: "center",
+    gridGap: "1rem",
+    height: "min-content",
   }),
 };
 

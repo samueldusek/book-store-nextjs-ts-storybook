@@ -13,6 +13,7 @@ const getStyles: BookListStyles = {
     gridTemplateColumns: "repeat(" + cols + ", 1fr)",
     gridAutoRows: "auto",
     columnGap: "1.5rem",
+    justifyItems: "center",
     rowGap: "1.5rem",
     maxWidth: "1000px",
     height: "min-content",
