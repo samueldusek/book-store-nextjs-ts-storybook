@@ -1,4 +1,20 @@
-export const formatBooks = (books: any) => {
+export type Book = {
+  id: string;
+  title: string;
+  cover: string;
+  datePublished: string;
+  isbn: number;
+  author: {
+    id: string;
+    name: string;
+  };
+  chapters: {
+    id: string;
+    title: string;
+  }[];
+};
+
+export const formatBooks = (books: any): Book[] => {
   return books.map((book: any) => {
     return {
       id: book.id,
@@ -12,7 +28,7 @@ export const formatBooks = (books: any) => {
   });
 };
 
-export const formatBook = (book: any) => {
+export const formatBook = (book: any): Book => {
   return {
     id: book.id,
     title: book.title,

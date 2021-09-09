@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import { GetStaticProps, GetStaticPaths } from "next";
 import Head from "next/head";
 import { Fragment } from "react";
 
@@ -7,8 +8,9 @@ import client from "../../apollo-client";
 import LayoutDetailPage from "../../components/layout/layout-detail-page/layout-detail-page";
 import MainAuthorCard from "../../components/cards/main-author-card/main-author-card";
 import BookList from "../../components/lists/book-list/book-list";
+import { formatAuthor, Author } from "../../helpers/authors";
 
-const AuthorDetailPage: NextPage = ({ author }: any) => {
+const AuthorDetailPage: NextPage<{ author: Author }> = ({ author }) => {
   const title = `${author.name} details`;
   const listTitle = `${author.name} books`;
   return (
@@ -29,7 +31,7 @@ const AuthorDetailPage: NextPage = ({ author }: any) => {
   );
 };
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = () => {
   const paths = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => {
     return {
       params: {
@@ -41,10 +43,10 @@ export async function getStaticPaths() {
     fallback: "blocking",
     paths: paths,
   };
-}
+};
 
-export async function getStaticProps(context: any) {
-  const { id } = context.params;
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { id } = context.params!;
 
   const { data } = await client.query({
     query: GET_AUTHOR,
@@ -55,30 +57,10 @@ export async function getStaticProps(context: any) {
 
   return {
     props: {
-      author: {
-        id: author.id,
-        name: author.name,
-        photo: `/images/authors/${id % 10}.svg`,
-        birthplace: author.birthplace,
-        dateOfBirth: author.date_of_birth,
-        dateOfDeath: author.date_of_death,
-        books: author.books.map((book: any) => {
-          return {
-            id: book.id,
-            title: book.title,
-            cover: `/images/books/${(book.id % 10) + 1}.png`,
-            author: {
-              id: author.id,
-              name: author.name,
-            },
-            datePublished: book.date_published,
-            isbn: book.isbn,
-          };
-        }),
-      },
+      author: formatAuthor(author),
     },
     revalidate: 60,
   };
-}
+};
 
 export default AuthorDetailPage;
