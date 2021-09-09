@@ -10,6 +10,7 @@ export type AuthorListProps = {
   cols?: number;
   hasTitle?: boolean;
   listTitle?: string;
+  gridCols?: number;
 };
 
 const AuthorList = ({
