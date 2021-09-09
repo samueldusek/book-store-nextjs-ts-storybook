@@ -21,6 +21,7 @@ const getStyles: MainBookCardStyles = {
       margin: "1.5rem 0rem",
     },
     maxWidth: "800px",
+    width: "100%",
   },
   bookContent: {
     display: "flex",

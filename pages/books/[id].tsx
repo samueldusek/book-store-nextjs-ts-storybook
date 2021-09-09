@@ -1,12 +1,16 @@
 import { Fragment } from "react";
 
 import type { NextPage } from "next";
+import { GetStaticProps, GetStaticPaths, GetServerSideProps } from "next";
 
 import Head from "next/head";
+import LayoutDetailPage from "../../components/layout/layout-detail-page/layout-detail-page";
 
 import { GET_BOOK } from "../../queries/book";
 import client from "../../apollo-client";
 import MainBookCard from "../../components/cards/main-book-card/main-book-card";
+import RandomBookList from "../../components/lists/random-book-list/random-book-list";
+import { formatBook } from "../../helpers/books";
 
 type BookDetailPageProps = {
   book: {
@@ -33,20 +37,15 @@ const BookDetailPage: NextPage = ({ book }: any) => {
       <Head>
         <title>{title}</title>
       </Head>
-      <MainBookCard
-        id={book.id}
-        title={book.title}
-        cover={book.cover}
-        datePublished={book.datePublished}
-        isbn={book.isbn}
-        author={book.author}
-        chapters={book.chapters}
-      />
+      <LayoutDetailPage>
+        <MainBookCard {...book} />
+        <RandomBookList />
+      </LayoutDetailPage>
     </Fragment>
   );
 };
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const paths = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => {
     return {
       params: {
@@ -58,10 +57,10 @@ export async function getStaticPaths() {
     fallback: "blocking",
     paths: paths,
   };
-}
+};
 
-export async function getStaticProps(context: any) {
-  const { id } = context.params;
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { id } = context.params!;
 
   const { data } = await client.query({
     query: GET_BOOK,
@@ -70,20 +69,14 @@ export async function getStaticProps(context: any) {
 
   const { book } = data;
 
+  const formattedBook = formatBook(book);
+
   return {
     props: {
-      book: {
-        id: book.id,
-        title: book.title,
-        cover: `/images/books/${(book.id % 10) + 1}.png`,
-        datePublished: book.date_published,
-        isbn: book.isbn,
-        author: book.author,
-        chapters: book.chapters,
-      },
+      book: formattedBook,
     },
     revalidate: 60,
   };
-}
+};
 
 export default BookDetailPage;
