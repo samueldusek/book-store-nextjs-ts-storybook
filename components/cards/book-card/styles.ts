@@ -11,8 +11,8 @@ export type BookCardStyles = Styles<BookCardClassNames, BookCardStylesProps>;
 const getStyles: (theme: CustomTheme) => BookCardStyles = (theme) => ({
   Card: {
     borderRadius: "52px",
-    backgroundColor: "#f5f5f5",
-    boxShadow: "-6px -6px 14px #d5d5d5, 6px 6px 14px #ffffff",
+    backgroundColor: theme.background.color.secondary,
+    boxShadow: `-6px -6px 14px ${theme.shadow.color.primary}, 6px 6px 14px ${theme.shadow.color.secondary}`,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -27,7 +27,7 @@ const getStyles: (theme: CustomTheme) => BookCardStyles = (theme) => ({
     height: "100%",
     width: "30%",
     borderRadius: "14px",
-    boxShadow: "-4px -4px 14px #d5d5d5, 4px 4px 14px #ffffff",
+    boxShadow: `-4px -4px 14px ${theme.shadow.color.primary}, 4px 4px 14px ${theme.shadow.color.secondary}`,
     overflow: "hidden",
   },
   textBox: {

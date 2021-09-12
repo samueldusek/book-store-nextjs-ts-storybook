@@ -1,11 +1,15 @@
+import { useContext } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { ThemeContext } from "../../../store/theme-context";
 
 import useNavbarStyles from "./styles";
 
 export type NavbarProps = {};
 
 const Navbar = () => {
+  const themeCtx = useContext(ThemeContext);
+  const { toggleDarkMode } = themeCtx;
   const classes = useNavbarStyles();
   const router = useRouter();
   const { pathname } = router;
@@ -21,6 +25,7 @@ const Navbar = () => {
             CONTACT
           </a>
         </Link>
+        <button onClick={() => toggleDarkMode()}>Dark Mode</button>
       </nav>
     </header>
   );

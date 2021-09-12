@@ -3,8 +3,8 @@ import Link from "next/link";
 import ReactLoading from "react-loading";
 import useBookCardStyles from "./styles";
 import { format } from "date-fns";
-import { Fragment } from "react";
-import { useTheme, CustomTheme } from "../../../store/theme-context";
+import { Fragment, useContext } from "react";
+import { ThemeContext, CustomTheme } from "../../../store/theme-context";
 
 export type BookCardProps = {
   id: string;
@@ -28,7 +28,8 @@ const BookCard = ({
   author,
   isLoading = false,
 }: BookCardProps) => {
-  const theme = useTheme<CustomTheme>();
+  const themeCtx = useContext(ThemeContext);
+  const theme = themeCtx.theme;
   const classes = useBookCardStyles({ theme });
 
   const authorsLink = `/authors/${author.id}`;
