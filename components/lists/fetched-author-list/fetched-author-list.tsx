@@ -15,6 +15,7 @@ type FetchedAuthorListProps = {
   maxAuthors?: number;
   hasTitle?: boolean;
   listTitle?: string;
+  gridCols?: number;
 };
 
 const FetchedAuthorList = ({
