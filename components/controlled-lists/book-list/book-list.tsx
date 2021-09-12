@@ -15,6 +15,7 @@ const BookList = () => {
         page={page}
         hasTitle={true}
         listTitle="Discover all our books"
+        maxBooks={10}
       />
       <Pagination maxPages={5} activePage={page} setPage={onSetPage} />
     </div>

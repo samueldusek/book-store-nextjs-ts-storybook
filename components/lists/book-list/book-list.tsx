@@ -5,33 +5,36 @@ import useBookListStyles, { BookListClasses } from "./styles";
 import { BookShort } from "../../../helpers/books";
 
 export type BookListProps = {
-  books: BookShort[];
+  books?: BookShort[];
   maxBooks?: number;
   cols?: number;
   hasTitle?: boolean;
   listTitle?: string;
+  isLoading?: boolean;
 };
 
 const BookList = ({
-  books,
+  books = [],
   maxBooks = books.length,
   hasTitle = false,
   listTitle = "",
+  isLoading = false,
   ...props
 }: BookListProps) => {
   const classes: BookListClasses = useBookListStyles({ ...props });
 
   const list = (
     <div className={classes.list}>
-      {books.slice(0, maxBooks).map((book) => (
+      {books.slice(0, maxBooks).map((book, idx) => (
         <BookCard
-          key={book.id}
+          key={`book-list-item-${idx}`}
           id={book.id}
           title={book.title}
           cover={book.cover}
           datePublished={book.datePublished}
           isbn={book.isbn}
           author={book.author}
+          isLoading={isLoading}
         />
       ))}
     </div>

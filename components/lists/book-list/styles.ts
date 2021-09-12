@@ -11,7 +11,7 @@ const getStyles: BookListStyles = {
   list: ({ cols = 2 }: BookListStylesProps) => ({
     display: "grid",
     gridTemplateColumns: "repeat(" + cols + ", 1fr)",
-    gridAutoRows: "auto",
+    gridAutoRows: "minmax(180px,auto)",
     columnGap: "1.5rem",
     justifyItems: "center",
     rowGap: "1.5rem",

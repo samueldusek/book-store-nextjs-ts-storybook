@@ -20,7 +20,7 @@ const getStyles: BookCardStyles = {
     width: "100%",
     maxWidth: "500px",
     maxHeight: "250px",
-    minWidth: "360px",
+    minWidth: "320px",
   },
   imageBox: {
     height: "100%",
@@ -38,7 +38,7 @@ const getStyles: BookCardStyles = {
     justifyContent: "space-between",
     "& header": {
       "& h3": {
-        fontSize: "1.5rem",
+        fontSize: "1.2rem",
         margin: "0px",
         marginBottom: "0.3rem",
       },

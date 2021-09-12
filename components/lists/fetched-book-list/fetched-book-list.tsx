@@ -20,6 +20,7 @@ type FetchedBookListProps = {
 const FetchedBookList = ({
   isRandom = false,
   page = 1,
+  maxBooks,
   ...props
 }: FetchedBookListProps) => {
   const pageToLoad = isRandom ? getRandInteger(1, 5) : page;
@@ -28,15 +29,15 @@ const FetchedBookList = ({
     variables: { page: pageToLoad },
   });
 
-  if (loading) return <p>Loading...</p>;
+  let booksToDisplay = new Array(maxBooks).fill(1);
 
-  const { books } = data;
-  const formattedBooks = formatBooks(books);
-  const booksToDisplay = isRandom
-    ? shuffleArray(formattedBooks)
-    : formattedBooks;
+  if (!loading && !error) {
+    const { books } = data;
+    const formattedBooks = formatBooks(books);
+    booksToDisplay = isRandom ? shuffleArray(formattedBooks) : formattedBooks;
+  }
 
-  return <BookList books={booksToDisplay} {...props} />;
+  return <BookList books={booksToDisplay} isLoading={loading} {...props} />;
 };
 
 export default FetchedBookList;

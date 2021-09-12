@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import ReactLoading from "react-loading";
 import useBookCardStyles from "./styles";
 import { format } from "date-fns";
+import { Fragment } from "react";
 
 export type BookCardProps = {
   id: string;
@@ -13,6 +15,7 @@ export type BookCardProps = {
     id: string;
     name: string;
   };
+  isLoading?: boolean;
 };
 
 const BookCard = ({
@@ -22,38 +25,50 @@ const BookCard = ({
   datePublished,
   isbn,
   author,
+  isLoading = false,
 }: BookCardProps) => {
   const classes = useBookCardStyles();
   return (
     <div className={classes.Card}>
-      <div className={classes.imageBox}>
-        <Image
-          src={cover}
-          alt={title}
-          width={136}
-          height={212}
-          layout="responsive"
+      {isLoading ? (
+        <ReactLoading
+          type={"bubbles"}
+          color={"#d5d5d5"}
+          height={64}
+          width={64}
         />
-      </div>
-      <div className={classes.textBox}>
-        <header>
-          <h3>{title}</h3>
-          <h5>
-            <Link href={`/authors/${author.id}`}>
-              <a>{author.name}</a>
-            </Link>
-          </h5>
-        </header>
-        <footer>
-          <div>
-            <time>{format(new Date(datePublished), "LLLL d yyyy")}</time>
-            <p>{isbn}</p>
+      ) : (
+        <Fragment>
+          <div className={classes.imageBox}>
+            <Image
+              src={cover}
+              alt={title}
+              width={136}
+              height={212}
+              layout="responsive"
+            />
           </div>
-          <Link href={`/books/${id}`}>
-            <a>MORE</a>
-          </Link>
-        </footer>
-      </div>
+          <div className={classes.textBox}>
+            <header>
+              <h3>{title}</h3>
+              <h5>
+                <Link href={`/authors/${author.id}`}>
+                  <a>{author.name}</a>
+                </Link>
+              </h5>
+            </header>
+            <footer>
+              <div>
+                <time>{format(new Date(datePublished), "LLLL d yyyy")}</time>
+                <p>{isbn}</p>
+              </div>
+              <Link href={`/books/${id}`}>
+                <a>MORE</a>
+              </Link>
+            </footer>
+          </div>
+        </Fragment>
+      )}
     </div>
   );
 };

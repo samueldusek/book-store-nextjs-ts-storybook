@@ -7,6 +7,12 @@ export default {
   title: "Cards/BookCard",
   component: BookCard,
   argTypes: {
+    isLoading: {
+      control: {
+        type: "boolean",
+      },
+      description: "Controls whether the content is loading or not.",
+    },
     id: {
       control: {
         type: "text",

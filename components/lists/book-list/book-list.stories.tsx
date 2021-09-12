@@ -7,6 +7,12 @@ export default {
   title: "Lists/BookList",
   component: BookList,
   argTypes: {
+    isLoading: {
+      control: {
+        type: "boolean",
+      },
+      description: "Controls whether the content is loading or not.",
+    },
     maxBooks: {
       control: {
         type: "number",
@@ -60,6 +66,7 @@ TwoColumnsList.args = {
   cols: 2,
   maxBooks: 10,
   hasTitle: false,
+  isLoading: false,
 };
 
 export const OneColumnList = Template.bind({});
@@ -68,4 +75,5 @@ OneColumnList.args = {
   cols: 1,
   maxBooks: 10,
   hasTitle: false,
+  isLoading: false,
 };
