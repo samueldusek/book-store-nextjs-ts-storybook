@@ -43,7 +43,28 @@ const ContactForm = ({}: ContactFormProps) => {
               },
             })}
           />
-          <ErrorMessage errors={errors} name="email" />
+          <ErrorMessage
+            errors={errors}
+            name="email"
+            render={({ message }) => (
+              <p className={classes.error}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                <span>{message}</span>
+              </p>
+            )}
+          />
         </div>
         <div className={classes.control}>
           <label>Your name</label>
@@ -58,7 +79,28 @@ const ContactForm = ({}: ContactFormProps) => {
               },
             })}
           />
-          <ErrorMessage errors={errors} name="name" />
+          <ErrorMessage
+            errors={errors}
+            name="name"
+            render={({ message }) => (
+              <p className={classes.error}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                <span>{message}</span>
+              </p>
+            )}
+          />
         </div>
       </div>
       <div className={classes.message}>
@@ -67,9 +109,45 @@ const ContactForm = ({}: ContactFormProps) => {
           rows={10}
           {...register("message", { required: "Please, insert your message." })}
         ></textarea>
-        <ErrorMessage errors={errors} name="message" />
+        <ErrorMessage
+          errors={errors}
+          name="message"
+          render={({ message }) => (
+            <p className={classes.error}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              <span>{message}</span>
+            </p>
+          )}
+        />
       </div>
-      <button type="submit">Send message</button>
+      <button type="submit">
+        <span>Send message</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 5l7 7-7 7"
+          />
+        </svg>
+      </button>
     </form>
   );
 };
