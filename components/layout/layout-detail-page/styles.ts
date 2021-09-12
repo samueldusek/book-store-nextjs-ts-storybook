@@ -17,7 +17,7 @@ const getStyles = {
     margin: "auto",
     maxWidth: "1200px",
     display: "grid",
-    gridTemplateColumns: "68% 30%",
+    gridTemplateColumns: "60% auto",
     gridColumnGap: "2%",
   },
 };

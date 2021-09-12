@@ -29,7 +29,8 @@ const getStyles: MainBookCardStyles = {
     gap: "1.5rem",
   },
   imageBox: {
-    flexGrow: "4",
+    flexBasis: "65%",
+    flexShrink: "0",
     boxShadow: "-8px -8px 28px #d5d5d5, 8px 8px 28px #ffffff",
     borderRadius: "20px",
     overflow: "hidden",

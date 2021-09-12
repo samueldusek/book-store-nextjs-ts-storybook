@@ -27,16 +27,16 @@ const getStyles: MainAuthorCardStyles = {
   authorContent: {
     display: "flex",
     flexDirection: "row",
+    gap: "2%",
   },
   imageBox: {
-    width: "60%",
+    flexBasis: "60%",
     "& img": {
       filter: "drop-shadow(2px 2px 10px grey)",
     },
   },
   textBox: {
-    width: "38%",
-    marginLeft: "2%",
+    flexBasis: "38%",
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
