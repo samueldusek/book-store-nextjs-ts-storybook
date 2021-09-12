@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.4.10",
+    "@hookform/error-message": "^2.0.0",
     "apollo-link": "^1.2.14",
     "apollo-link-json-api": "^0.1.2",
     "date-fns": "^2.23.0",

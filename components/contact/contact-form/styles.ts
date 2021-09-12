@@ -21,6 +21,9 @@ const getStyles = {
     "& label": {
       display: "block",
     },
+    "& button": {
+      marginTop: "1rem",
+    },
   },
   contactControls: {
     display: "grid",
