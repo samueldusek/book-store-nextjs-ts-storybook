@@ -81,4 +81,5 @@ LightTheme.args = {
     id: "1",
     name: "Dummy Author",
   },
+  isLoading: false,
 };

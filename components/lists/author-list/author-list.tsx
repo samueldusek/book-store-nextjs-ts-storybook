@@ -11,6 +11,7 @@ export type AuthorListProps = {
   hasTitle?: boolean;
   listTitle?: string;
   gridCols?: number;
+  isLoading?: boolean;
 };
 
 const AuthorList = ({
@@ -18,18 +19,20 @@ const AuthorList = ({
   maxAuthors = authors.length,
   hasTitle = false,
   listTitle = "",
+  isLoading = false,
   ...props
 }: AuthorListProps) => {
   const classes: AuthorListClasses = useAuthorListStyles({ ...props });
 
   const list = (
     <div className={classes.list}>
-      {authors.slice(0, maxAuthors).map((author) => (
+      {authors.slice(0, maxAuthors).map((author, idx) => (
         <AuthorCard
-          key={author.id}
+          key={`author-list-item-${idx}`}
           id={author.id}
           name={author.name}
           photo={author.photo}
+          isLoading={isLoading}
         />
       ))}
     </div>

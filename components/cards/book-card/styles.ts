@@ -20,7 +20,7 @@ const getStyles: BookCardStyles = {
     width: "100%",
     maxWidth: "500px",
     maxHeight: "250px",
-    minWidth: "320px",
+    minWidth: "340px",
   },
   imageBox: {
     height: "100%",
@@ -38,12 +38,12 @@ const getStyles: BookCardStyles = {
     justifyContent: "space-between",
     "& header": {
       "& h3": {
-        fontSize: "1.2rem",
+        fontSize: "1.1rem",
         margin: "0px",
         marginBottom: "0.3rem",
       },
       "& h5": {
-        fontSize: "1.1rem",
+        fontSize: "1rem",
         color: "#A9A9A9",
         margin: "0px",
         textDecoration: "none",
@@ -59,7 +59,7 @@ const getStyles: BookCardStyles = {
         color: "#A9A9A9",
       },
       "& a": {
-        fontSize: "1.2rem",
+        fontSize: "1.1rem",
         textDecoration: "none",
         letterSpacing: "0.1rem",
         color: "grey",

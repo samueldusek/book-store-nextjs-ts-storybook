@@ -7,6 +7,12 @@ export default {
   title: "Lists/AuthorList",
   component: AuthorList,
   argTypes: {
+    isLoading: {
+      control: {
+        type: "boolean",
+      },
+      description: "Controls whether the content is loading or not.",
+    },
     maxAuthors: {
       control: {
         type: "number",
@@ -39,13 +45,13 @@ TwoColumnsList.args = {
     name: "Dummy Author",
     photo: "/images/authors/1.svg",
   }),
-  cols: 2,
+  isLoading: false,
   maxAuthors: 10,
+  cols: 2,
 };
 
 export const OneColumnList = Template.bind({});
 OneColumnList.args = {
   ...TwoColumnsList.args,
   cols: 1,
-  maxAuthors: 10,
 };

@@ -14,6 +14,10 @@ const getStyles = {
   Card: {
     width: "100%",
     maxWidth: "100px",
+    minHeight: "120px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
     "& a": {
       display: "flex",
       flexDirection: "column",

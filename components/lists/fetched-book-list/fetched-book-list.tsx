@@ -37,7 +37,14 @@ const FetchedBookList = ({
     booksToDisplay = isRandom ? shuffleArray(formattedBooks) : formattedBooks;
   }
 
-  return <BookList books={booksToDisplay} isLoading={loading} {...props} />;
+  return (
+    <BookList
+      books={booksToDisplay}
+      isLoading={loading}
+      maxBooks={maxBooks}
+      {...props}
+    />
+  );
 };
 
 export default FetchedBookList;

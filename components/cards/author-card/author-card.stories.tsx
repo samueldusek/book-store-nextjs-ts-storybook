@@ -7,6 +7,12 @@ export default {
   title: "Cards/AuthorCard",
   component: AuthorCard,
   argTypes: {
+    isLoading: {
+      control: {
+        type: "boolean",
+      },
+      description: "Controls whether the content is loading or not.",
+    },
     id: {
       control: {
         type: "text",
@@ -38,4 +44,5 @@ LightTheme.args = {
   id: "1",
   name: "Dummy Author",
   photo: "/images/authors/1.svg",
+  isLoading: false,
 };
