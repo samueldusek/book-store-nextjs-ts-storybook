@@ -5,7 +5,7 @@ import usePaginationStyles from "./styles";
 export type PaginationProps = {
   maxPages: number;
   activePage: number;
-  setPage: () => {};
+  setPage: (page: number) => void;
 };
 
 function Pagination({ maxPages, activePage, setPage }: PaginationProps) {
@@ -14,7 +14,11 @@ function Pagination({ maxPages, activePage, setPage }: PaginationProps) {
 
   for (let idx = 1; idx <= maxPages; idx++) {
     buttons.push(
-      <button key={idx} className={activePage === idx ? "active" : undefined}>
+      <button
+        key={idx}
+        className={activePage === idx ? "active" : undefined}
+        onClick={() => setPage(idx)}
+      >
         {idx}
       </button>
     );

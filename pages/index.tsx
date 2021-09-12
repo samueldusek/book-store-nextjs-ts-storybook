@@ -3,7 +3,7 @@ import Head from "next/head";
 import { Fragment } from "react";
 import LayoutDetailPage from "../components/layout/layout-detail-page/layout-detail-page";
 import FetchedAuthorList from "../components/lists/fetched-author-list/fetched-author-list";
-import FetchedBookList from "../components/lists/fetched-book-list/fetched-book-list";
+import BookList from "../components/controlled-lists/book-list/book-list";
 
 const Home: NextPage = () => {
   return (
@@ -12,7 +12,7 @@ const Home: NextPage = () => {
         <title>Book Store</title>
       </Head>
       <LayoutDetailPage>
-        <FetchedBookList hasTitle={true} listTitle="Discover all our books" />
+        <BookList />
         <FetchedAuthorList hasTitle={true} listTitle="Our authors" />
       </LayoutDetailPage>
     </Fragment>
