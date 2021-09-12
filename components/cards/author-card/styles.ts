@@ -19,6 +19,7 @@ const getStyles = {
     justifyContent: "center",
     alignItems: "center",
     "& a": {
+      width: "100%",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",

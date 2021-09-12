@@ -4,6 +4,7 @@ import ReactLoading from "react-loading";
 import useBookCardStyles from "./styles";
 import { format } from "date-fns";
 import { Fragment } from "react";
+import { useTheme, CustomTheme } from "../../../store/theme-context";
 
 export type BookCardProps = {
   id: string;
@@ -27,7 +28,13 @@ const BookCard = ({
   author,
   isLoading = false,
 }: BookCardProps) => {
-  const classes = useBookCardStyles();
+  const theme = useTheme<CustomTheme>();
+  const classes = useBookCardStyles({ theme });
+
+  const authorsLink = `/authors/${author.id}`;
+  const booksLink = `/books/${id}`;
+  const formattedDate = format(new Date(datePublished), "LLLL d yyyy");
+
   return (
     <div className={classes.Card}>
       {isLoading ? (
@@ -52,17 +59,17 @@ const BookCard = ({
             <header>
               <h3>{title}</h3>
               <h5>
-                <Link href={`/authors/${author.id}`}>
+                <Link href={authorsLink}>
                   <a>{author.name}</a>
                 </Link>
               </h5>
             </header>
             <footer>
               <div>
-                <time>{format(new Date(datePublished), "LLLL d yyyy")}</time>
+                <time>{formattedDate}</time>
                 <p>{isbn}</p>
               </div>
-              <Link href={`/books/${id}`}>
+              <Link href={booksLink}>
                 <a>MORE</a>
               </Link>
             </footer>

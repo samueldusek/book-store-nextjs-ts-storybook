@@ -1,13 +1,14 @@
 import { Classes, Styles } from "jss";
 import { createUseStyles } from "react-jss";
 import { BookCardProps } from "./book-card";
+import { CustomTheme } from "../../../store/theme-context";
 
 export type BookCardClassNames = "Card" | "imageBox" | "textBox";
 export type BookCardClasses = Classes<BookCardClassNames>;
 export type BookCardStylesProps = BookCardProps;
 export type BookCardStyles = Styles<BookCardClassNames, BookCardStylesProps>;
 
-const getStyles: BookCardStyles = {
+const getStyles: (theme: CustomTheme) => BookCardStyles = (theme) => ({
   Card: {
     borderRadius: "52px",
     backgroundColor: "#f5f5f5",
@@ -39,12 +40,13 @@ const getStyles: BookCardStyles = {
     "& header": {
       "& h3": {
         fontSize: "1.1rem",
+        color: theme.text.color.primary,
         margin: "0px",
         marginBottom: "0.3rem",
       },
       "& h5": {
         fontSize: "1rem",
-        color: "#A9A9A9",
+        color: theme.text.color.secondary,
         margin: "0px",
         textDecoration: "none",
       },
@@ -53,25 +55,28 @@ const getStyles: BookCardStyles = {
       display: "flex",
       justifyContent: "space-between",
       alignItems: "flex-end",
+      "& time": {
+        color: theme.text.color.primary,
+      },
       "& p": {
+        color: theme.text.color.info,
         margin: "0px",
         marginTop: "0.4rem",
-        color: "#A9A9A9",
       },
       "& a": {
         fontSize: "1.1rem",
         textDecoration: "none",
         letterSpacing: "0.1rem",
-        color: "grey",
+        color: theme.text.color.secondary,
         transition: "all 0.3s 0s ease-in-out",
         cursor: "pointer",
         "&:hover": {
-          color: "black",
+          color: theme.text.color.primary,
         },
       },
     },
   },
-};
+});
 
 const useBookCardStyles: (data?: any) => BookCardClasses = createUseStyles(
   getStyles
