@@ -1,5 +1,6 @@
 import { Classes, Styles } from "jss";
 import { createUseStyles } from "react-jss";
+import { CustomTheme } from "../../../store/theme-context";
 import { AuthorCardProps } from "./author-card";
 
 export type AuthorCardClassNames = "Card" | "image" | "name";
@@ -10,7 +11,7 @@ export type AuthorCardStyles = Styles<
   AuthorCardStylesProps
 >;
 
-const getStyles = {
+const getStyles: (theme: CustomTheme) => AuthorCardStyles = (theme) => ({
   Card: {
     width: "100%",
     maxWidth: "100px",
@@ -25,6 +26,7 @@ const getStyles = {
       alignItems: "center",
       transition: "all 0.4s 0s ease-in-out",
       cursor: "pointer",
+      color: theme.text.color.primary,
       "&:hover": {
         transform: "scale(1.05)",
       },
@@ -35,14 +37,15 @@ const getStyles = {
     margin: "auto",
     borderRadius: "50%",
     overflow: "hidden",
-    boxShadow: "-3px -3px 20px #d5d5d5, 4px 4px 14px #ffffff",
+    backgroundColor: theme.background.color.secondary,
+    boxShadow: `-2px -2px 10px ${theme.shadow.color.primary}, 2px 2px 10px ${theme.shadow.color.secondary}`,
   },
   name: {
     marginTop: "0.3rem",
     fontSize: "0.9rem",
     textAlign: "center",
   },
-};
+});
 
 const useAuthorCardStyles: (data?: any) => AuthorCardClasses = createUseStyles(
   getStyles

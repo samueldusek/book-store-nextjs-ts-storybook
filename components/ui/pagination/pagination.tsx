@@ -2,6 +2,8 @@ import React from "react";
 
 import usePaginationStyles from "./styles";
 
+import { useTheme } from "../../../store/theme-context";
+
 export type PaginationProps = {
   maxPages: number;
   activePage: number;
@@ -9,7 +11,8 @@ export type PaginationProps = {
 };
 
 function Pagination({ maxPages, activePage, setPage }: PaginationProps) {
-  const classes = usePaginationStyles();
+  const { theme } = useTheme();
+  const classes = usePaginationStyles({ theme });
   const buttons = [];
 
   for (let idx = 1; idx <= maxPages; idx++) {

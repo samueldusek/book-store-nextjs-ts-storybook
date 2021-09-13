@@ -24,7 +24,7 @@ const getStyles: (theme: CustomTheme) => NavbarStyles = (theme) => ({
     },
     "& a": {
       marginLeft: "1.5rem",
-      color: theme.text.color.secondary,
+      color: theme.text.color.info,
       letterSpacing: "0.1rem",
       textDecoration: "none",
       transition: "all 0.4s 0s ease-in-out",

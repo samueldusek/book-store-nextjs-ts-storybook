@@ -1,6 +1,7 @@
 import { Classes, Styles } from "jss";
 import { createUseStyles } from "react-jss";
 import { AuthorListProps } from "./author-list";
+import { CustomTheme } from "../../../store/theme-context";
 
 export type AuthorListClassNames = "list" | "listWrapper";
 export type AuthorListClasses = Classes<AuthorListClassNames>;
@@ -10,7 +11,7 @@ export type AuthorListStyles = Styles<
   AuthorListStylesProps
 >;
 
-const getStyles: AuthorListStyles = {
+const getStyles: (theme: CustomTheme) => AuthorListStyles = (theme) => ({
   list: ({ cols = 2, gridCols = 1 }: AuthorListStylesProps) => ({
     gridColumnStart: "span " + gridCols,
     display: "grid",
@@ -21,8 +22,11 @@ const getStyles: AuthorListStyles = {
   }),
   listWrapper: ({ gridCols = 1 }: AuthorListStylesProps) => ({
     gridColumnStart: "span " + gridCols,
+    "& h2": {
+      color: theme.text.color.primary,
+    },
   }),
-};
+});
 
 const useAuthorListStyles: (data?: any) => AuthorListClasses = createUseStyles(
   getStyles

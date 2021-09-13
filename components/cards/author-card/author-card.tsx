@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ReactLoading from "react-loading";
 import useAuthorCardStyles from "./styles";
+import { useTheme } from "../../../store/theme-context";
 
 export type AuthorCardProps = {
   id: string;
@@ -16,13 +17,14 @@ const AuthorCard = ({
   photo,
   isLoading = false,
 }: AuthorCardProps) => {
-  const classes = useAuthorCardStyles();
+  const { theme } = useTheme();
+  const classes = useAuthorCardStyles({ theme });
   return (
     <div className={classes.Card}>
       {isLoading ? (
         <ReactLoading
           type={"spinningBubbles"}
-          color={"#d5d5d5"}
+          color={theme.text.color.secondary}
           height={30}
           width={30}
         />

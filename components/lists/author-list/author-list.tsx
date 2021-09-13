@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import AuthorCard from "../../cards/author-card/author-card";
 import useAuthorListStyles, { AuthorListClasses } from "./styles";
+import { useTheme } from "../../../store/theme-context";
 
 import { AuthorShort } from "../../../helpers/authors";
 
@@ -22,7 +23,8 @@ const AuthorList = ({
   isLoading = false,
   ...props
 }: AuthorListProps) => {
-  const classes: AuthorListClasses = useAuthorListStyles({ ...props });
+  const { theme } = useTheme();
+  const classes: AuthorListClasses = useAuthorListStyles({ ...props, theme });
 
   const list = (
     <div className={classes.list}>

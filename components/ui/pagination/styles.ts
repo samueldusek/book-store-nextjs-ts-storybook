@@ -1,6 +1,7 @@
 import { Classes, Styles } from "jss";
 import { createUseStyles } from "react-jss";
 import { PaginationProps } from "./pagination";
+import { CustomTheme } from "../../../store/theme-context";
 
 export type PaginationClassNames = "Pagination";
 export type PaginationClasses = Classes<PaginationClassNames>;
@@ -10,7 +11,7 @@ export type PaginationStyles = Styles<
   PaginationStylesProps
 >;
 
-const getStyles: PaginationStyles = {
+const getStyles: (theme: CustomTheme) => PaginationStyles = (theme) => ({
   Pagination: {
     width: "100%",
     display: "flex",
@@ -24,20 +25,20 @@ const getStyles: PaginationStyles = {
       margin: "0px 0.3rem",
       border: "none",
       borderRadius: "15px",
-      backgroundColor: "#f5f5f5",
-      color: "grey",
-      boxShadow: "-4px -4px 20px #d5d5d5, 4px 4px 20px #fff",
+      backgroundColor: theme.background.color.secondary,
+      color: theme.text.color.info,
+      boxShadow: `-2px -2px 10px ${theme.shadow.color.secondary}, 2px 2px 10px ${theme.shadow.color.primary}`,
       transition: "all 0.4s ease-in-out",
       "&:hover": {
         cursor: "pointer",
-        color: "black",
+        color: theme.text.color.primary,
       },
     },
     "& .active": {
-      color: "black",
+      color: theme.text.color.primary,
     },
   },
-};
+});
 
 const usePaginationStyles: (data?: any) => PaginationClasses = createUseStyles(
   getStyles

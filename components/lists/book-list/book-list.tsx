@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import BookCard from "../../cards/book-card/book-card";
 import useBookListStyles, { BookListClasses } from "./styles";
+import { useTheme } from "../../../store/theme-context";
 
 import { BookShort } from "../../../helpers/books";
 
@@ -21,7 +22,8 @@ const BookList = ({
   isLoading = false,
   ...props
 }: BookListProps) => {
-  const classes: BookListClasses = useBookListStyles({ ...props });
+  const { theme } = useTheme();
+  const classes = useBookListStyles({ ...props, theme });
 
   const list = (
     <div className={classes.list}>
@@ -43,7 +45,7 @@ const BookList = ({
   if (hasTitle) {
     return (
       <div>
-        <h2>{listTitle}</h2>
+        <h2 className={classes.title}>{listTitle}</h2>
         {list}
       </div>
     );
