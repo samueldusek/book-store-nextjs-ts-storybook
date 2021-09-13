@@ -7,12 +7,12 @@ It is a copy of the single page application I built using only React, but this t
 ## Screenshots
 
 <div style="display: flex">
-<a href="https://ibb.co/Kq8c0Mf"><img src="https://i.ibb.co/ts1wm7v/Screenshot-2021-09-13-at-20-30-06-Lindgren-Inc-details.png" alt="Screenshot-2021-09-13-at-20-30-06-Lindgren-Inc-details" border="0"></a>
-<a href="https://ibb.co/Ng0NqBP"><img src="https://i.ibb.co/BHh6JMx/Screenshot-2021-09-13-at-20-29-59-Lindgren-Inc-details.png" alt="Screenshot-2021-09-13-at-20-29-59-Lindgren-Inc-details" border="0"></a>
+<a href="https://ibb.co/Kq8c0Mf" style="flex-basis: 50%"><img src="https://i.ibb.co/ts1wm7v/Screenshot-2021-09-13-at-20-30-06-Lindgren-Inc-details.png" alt="Screenshot-2021-09-13-at-20-30-06-Lindgren-Inc-details" border="0"></a>
+<a href="https://ibb.co/Ng0NqBP"  style="flex-basis: 50%"><img src="https://i.ibb.co/BHh6JMx/Screenshot-2021-09-13-at-20-29-59-Lindgren-Inc-details.png" alt="Screenshot-2021-09-13-at-20-29-59-Lindgren-Inc-details" border="0"></a>
 </div>
 <div style="display: flex">
-<a href="https://ibb.co/9psBWny"><img src="https://i.ibb.co/ZfWvxdc/Screenshot-2021-09-13-at-20-29-22-Book-Store.png" alt="Screenshot-2021-09-13-at-20-29-22-Book-Store" border="0"></a>
-<a href="https://ibb.co/yVDg8b7"><img src="https://i.ibb.co/cxP2N7V/Screenshot-2021-09-13-at-20-29-34-Book-Store.png" alt="Screenshot-2021-09-13-at-20-29-34-Book-Store" border="0"></a>
+<a href="https://ibb.co/9psBWny"  style="flex-basis: 50%"><img src="https://i.ibb.co/ZfWvxdc/Screenshot-2021-09-13-at-20-29-22-Book-Store.png" alt="Screenshot-2021-09-13-at-20-29-22-Book-Store" border="0"></a>
+<a href="https://ibb.co/yVDg8b7"  style="flex-basis: 50%"><img src="https://i.ibb.co/cxP2N7V/Screenshot-2021-09-13-at-20-29-34-Book-Store.png" alt="Screenshot-2021-09-13-at-20-29-34-Book-Store" border="0"></a>
 </div>
 
 ## Main features
