@@ -25,6 +25,7 @@ export type CustomTheme = {
 type ThemeContextType = {
   theme: CustomTheme;
   toggleDarkMode: () => void;
+  isDarkMode: boolean;
 };
 
 export const lightTheme: CustomTheme = {
@@ -73,6 +74,7 @@ export const darkTheme: CustomTheme = {
 
 export const ThemeContext = createContext<ThemeContextType>({
   theme: lightTheme,
+  isDarkMode: false,
   toggleDarkMode: () => {},
 });
 
@@ -88,6 +90,7 @@ export const MyThemeProvider: FC = (props) => {
   const themeContext = {
     theme: isDarkMode ? darkTheme : lightTheme,
     toggleDarkMode: toggleDarkMode,
+    isDarkMode: isDarkMode,
   };
 
   return (
