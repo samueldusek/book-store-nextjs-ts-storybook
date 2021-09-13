@@ -4,16 +4,15 @@ import Navbar from "../navbar/navbar";
 import useLayoutStyles from "./styles";
 import { ApolloProvider } from "@apollo/client";
 import client from "../../../apollo-client";
-import { ThemeContext, CustomTheme } from "../../../store/theme-context";
+import { useTheme } from "../../../store/theme-context";
 
 export type LayoutProps = {
   children: React.ReactNode;
 };
 
 const Layout = ({ children }: LayoutProps) => {
-  const themeCtx = useContext(ThemeContext);
   const classes = useLayoutStyles();
-  const theme = themeCtx.theme;
+  const { theme } = useTheme();
   return (
     <Fragment>
       <Navbar />

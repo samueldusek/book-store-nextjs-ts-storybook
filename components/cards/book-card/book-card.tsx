@@ -3,8 +3,8 @@ import Link from "next/link";
 import ReactLoading from "react-loading";
 import useBookCardStyles from "./styles";
 import { format } from "date-fns";
-import { Fragment, useContext } from "react";
-import { ThemeContext, CustomTheme } from "../../../store/theme-context";
+import { Fragment } from "react";
+import { useTheme } from "../../../store/theme-context";
 
 export type BookCardProps = {
   id: string;
@@ -28,13 +28,14 @@ const BookCard = ({
   author,
   isLoading = false,
 }: BookCardProps) => {
-  const themeCtx = useContext(ThemeContext);
-  const theme = themeCtx.theme;
+  const { theme } = useTheme();
   const classes = useBookCardStyles({ theme });
 
-  const authorsLink = `/authors/${author.id}`;
-  const booksLink = `/books/${id}`;
-  const formattedDate = format(new Date(datePublished), "LLLL d yyyy");
+  const authorsLink = isLoading ? "" : `/authors/${author.id}`;
+  const booksLink = isLoading ? "" : `/books/${id}`;
+  const formattedDate = isLoading
+    ? ""
+    : format(new Date(datePublished), "LLLL d yyyy");
 
   return (
     <div className={classes.Card}>

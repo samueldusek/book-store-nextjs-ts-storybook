@@ -1,4 +1,4 @@
-import { FC, useState, createContext } from "react";
+import { FC, useState, createContext, useContext } from "react";
 
 export type CustomTheme = {
   text: {
@@ -22,10 +22,10 @@ export type CustomTheme = {
   };
 };
 
-export const ThemeContext = createContext({
-  theme: {},
-  toggleDarkMode: () => {},
-});
+type ThemeContextType = {
+  theme: CustomTheme;
+  toggleDarkMode: () => void;
+};
 
 const lightTheme: CustomTheme = {
   text: {
@@ -70,6 +70,13 @@ const darkTheme: CustomTheme = {
     },
   },
 };
+
+export const ThemeContext = createContext<ThemeContextType>({
+  theme: lightTheme,
+  toggleDarkMode: () => {},
+});
+
+export const useTheme = () => useContext<ThemeContextType>(ThemeContext);
 
 export const MyThemeProvider: FC = (props) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
