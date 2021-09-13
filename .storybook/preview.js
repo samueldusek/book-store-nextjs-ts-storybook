@@ -1,3 +1,10 @@
+import {
+  MyThemeProvider,
+  useTheme,
+  lightTheme,
+  darkTheme,
+} from "../store/theme-context";
+
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
@@ -6,6 +13,13 @@ export const parameters = {
       date: /Date$/,
     },
     expanded: true,
+  },
+  backgrounds: {
+    default: "light",
+    values: [
+      { name: "light", value: lightTheme.background.color.primary },
+      { name: "dark", value: darkTheme.background.color.primary },
+    ],
   },
 };
 
@@ -17,3 +31,19 @@ Object.defineProperty(NextImage, "default", {
   configurable: true,
   value: (props) => <OriginalNextImage {...props} unoptimized />,
 });
+
+const ToggleDarkMode = () => {
+  const { toggleDarkMode } = useTheme();
+  return <button onClick={() => toggleDarkMode()}>Dark Mode</button>;
+};
+
+export const decorators = [
+  (Story) => (
+    <MyThemeProvider>
+      <ToggleDarkMode />
+      <div style={{ marginTop: "20px" }}>
+        <Story />
+      </div>
+    </MyThemeProvider>
+  ),
+];

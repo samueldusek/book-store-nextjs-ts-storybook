@@ -1,9 +1,9 @@
+import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import ReactLoading from "react-loading";
 import useBookCardStyles from "./styles";
 import { format } from "date-fns";
-import { Fragment } from "react";
 import { useTheme } from "../../../store/theme-context";
 
 export type BookCardProps = {
@@ -42,7 +42,7 @@ const BookCard = ({
       {isLoading ? (
         <ReactLoading
           type={"bubbles"}
-          color={"#d5d5d5"}
+          color={theme.text.color.secondary}
           height={64}
           width={64}
         />

@@ -27,7 +27,7 @@ type ThemeContextType = {
   toggleDarkMode: () => void;
 };
 
-const lightTheme: CustomTheme = {
+export const lightTheme: CustomTheme = {
   text: {
     color: {
       primary: "#000000",
@@ -49,7 +49,7 @@ const lightTheme: CustomTheme = {
   },
 };
 
-const darkTheme: CustomTheme = {
+export const darkTheme: CustomTheme = {
   text: {
     color: {
       primary: "#F5F7FA",
