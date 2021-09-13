@@ -1,24 +1,26 @@
 import { Classes, Styles } from "jss";
 import { createUseStyles } from "react-jss";
 import { FooterProps } from "./footer";
+import { CustomTheme } from "../../../store/theme-context";
 
 export type FooterClassNames = "Footer";
 export type FooterClasses = Classes<FooterClassNames>;
 export type FooterStylesProps = FooterProps;
 export type FooterStyles = Styles<FooterClassNames, FooterStylesProps>;
 
-const getStyles = {
+const getStyles: (theme: CustomTheme) => FooterStyles = (theme) => ({
   Footer: {
     width: "100%",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    color: theme.text.color.primary,
     "& a": {
-      color: "grey",
+      color: theme.text.color.secondary,
     },
     marginTop: "1rem",
   },
-};
+});
 
 const useFooterStyles: (data?: any) => FooterClasses = createUseStyles(
   getStyles

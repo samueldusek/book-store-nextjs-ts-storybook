@@ -7,8 +7,8 @@ import useNavbarStyles from "./styles";
 export type NavbarProps = {};
 
 const Navbar = () => {
-  const { toggleDarkMode } = useTheme();
-  const classes = useNavbarStyles();
+  const { toggleDarkMode, theme } = useTheme();
+  const classes = useNavbarStyles({ theme });
   const router = useRouter();
   const { pathname } = router;
   return (

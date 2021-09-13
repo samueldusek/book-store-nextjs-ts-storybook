@@ -1,13 +1,14 @@
 import { Classes, Styles } from "jss";
 import { createUseStyles } from "react-jss";
 import { NavbarProps } from "./navbar";
+import { CustomTheme } from "../../../store/theme-context";
 
 export type NavbarClassNames = "Navbar";
 export type NavbarClasses = Classes<NavbarClassNames>;
 export type NavbarStylesProps = NavbarProps;
 export type NavbarStyles = Styles<NavbarClassNames, NavbarStylesProps>;
 
-const getStyles = {
+const getStyles: (theme: CustomTheme) => NavbarStyles = (theme) => ({
   Navbar: {
     width: "98%",
     margin: "auto",
@@ -17,24 +18,25 @@ const getStyles = {
     justifyContent: "space-between",
     alignItems: "center",
     "& h2": {
+      color: theme.text.color.primary,
       textTransform: "uppercase",
       letterSpacing: "0.1rem",
     },
     "& a": {
       marginLeft: "1.5rem",
-      color: "grey",
+      color: theme.text.color.secondary,
       letterSpacing: "0.1rem",
       textDecoration: "none",
       transition: "all 0.4s 0s ease-in-out",
       "&:hover": {
-        color: "black",
+        color: theme.text.color.primary,
       },
     },
     "& .active": {
-      color: "black",
+      color: theme.text.color.primary,
     },
   },
-};
+});
 
 const useNavbarStyles: (data?: any) => NavbarClasses = createUseStyles(
   getStyles

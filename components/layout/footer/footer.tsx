@@ -1,10 +1,12 @@
 import Link from "next/link";
 import useFooterStyles from "./styles";
+import { useTheme } from "../../../store/theme-context";
 
 export type FooterProps = {};
 
 function Footer({}: FooterProps) {
-  const classes = useFooterStyles();
+  const { theme } = useTheme();
+  const classes = useFooterStyles({ theme });
   return (
     <footer className={classes.Footer}>
       <p>
