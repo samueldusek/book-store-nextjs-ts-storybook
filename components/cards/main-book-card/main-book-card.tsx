@@ -3,6 +3,7 @@ import Link from "next/link";
 import ChapterList from "../../lists/chapter-list/chapter-list";
 import useMainBookCardStyles from "./styles";
 import { format } from "date-fns";
+import { useTheme } from "../../../store/theme-context";
 
 export type MainBookCardProps = {
   id: string;
@@ -29,7 +30,8 @@ const MainBookCard = ({
   author,
   chapters,
 }: MainBookCardProps) => {
-  const classes = useMainBookCardStyles();
+  const { theme } = useTheme();
+  const classes = useMainBookCardStyles({ theme });
   const datePublishedFormatted = format(new Date(datePublished), "LLLL d yyyy");
   const authorsLink = `/authors/${author.id}`;
   return (

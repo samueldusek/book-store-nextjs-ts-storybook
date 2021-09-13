@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import useChapterListStyles from "./styles";
+import { useTheme } from "../../../store/theme-context";
 
 export type ChapterListProps = {
   chapters: {
@@ -9,11 +10,12 @@ export type ChapterListProps = {
 };
 
 const ChapterList = ({ chapters }: ChapterListProps) => {
-  const classes = useChapterListStyles();
+  const { theme } = useTheme();
+  const classes = useChapterListStyles({ theme });
 
   const chaptersList =
     chapters.length === 0 ? (
-      <p>None</p>
+      <p className={classes.none}>None</p>
     ) : (
       <ul className={classes.list}>
         {chapters.map((chapter) => (

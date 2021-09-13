@@ -1,6 +1,7 @@
 import Image from "next/image";
 import useMainAuthorCardStyles from "./styles";
 import { format } from "date-fns";
+import { useTheme } from "../../../store/theme-context";
 
 export type MainAuthorCardProps = {
   id: string;
@@ -19,7 +20,8 @@ const MainAuthorCard = ({
   dateOfBirth,
   dateOfDeath,
 }: MainAuthorCardProps) => {
-  const classes = useMainAuthorCardStyles();
+  const { theme } = useTheme();
+  const classes = useMainAuthorCardStyles({ theme });
   const dateOfBirthFormatted = format(new Date(dateOfBirth), "LLLL d yyyy");
   const dateOfDeathFormatted = format(new Date(dateOfDeath), "LLLL d yyyy");
   return (
