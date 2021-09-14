@@ -2,6 +2,7 @@ import { Classes, Styles } from "jss";
 import { createUseStyles } from "react-jss";
 import { AuthorListProps } from "./author-list";
 import { CustomTheme } from "../../../store/theme-context";
+import { getSizeMedia } from "../../../helpers/utils";
 
 export type AuthorListClassNames = "list" | "listWrapper";
 export type AuthorListClasses = Classes<AuthorListClassNames>;

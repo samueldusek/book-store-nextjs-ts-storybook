@@ -1,6 +1,7 @@
 import { Classes, Styles } from "jss";
 import { createUseStyles } from "react-jss";
 import { LayoutProps } from "./layout-index-page";
+import { getSizeMedia } from "../../../helpers/utils";
 
 export type LayoutIndexPageClassNames = "layoutIndexPage";
 export type LayoutIndexPageClasses = Classes<LayoutIndexPageClassNames>;
@@ -19,6 +20,10 @@ const getStyles = {
     display: "grid",
     gridTemplateColumns: "70% 28%",
     gridColumnGap: "2%",
+    [getSizeMedia.down("md")]: {
+      gridTemplateColumns: "100%",
+      gridColumnGap: "0%",
+    },
   },
 };
 

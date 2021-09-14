@@ -21,7 +21,7 @@ const getStyles: (theme: CustomTheme) => BookCardStyles = (theme) => ({
     width: "100%",
     maxWidth: "500px",
     maxHeight: "250px",
-    minWidth: "340px",
+    minWidth: "345px",
   },
   imageBox: {
     height: "100%",
