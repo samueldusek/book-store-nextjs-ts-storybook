@@ -32,9 +32,18 @@ Object.defineProperty(NextImage, "default", {
   value: (props) => <OriginalNextImage {...props} unoptimized />,
 });
 
+import DarkModeToggle from "react-dark-mode-toggle";
+
 const ToggleDarkMode = () => {
-  const { toggleDarkMode } = useTheme();
-  return <button onClick={() => toggleDarkMode()}>Dark Mode</button>;
+  const { toggleDarkMode, isDarkMode } = useTheme();
+  return (
+    <DarkModeToggle
+      onChange={toggleDarkMode}
+      checked={isDarkMode}
+      size={60}
+      speed={1.6}
+    />
+  );
 };
 
 export const decorators = [
