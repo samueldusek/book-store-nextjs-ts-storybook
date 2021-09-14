@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { Fragment } from "react";
-import LayoutDetailPage from "../components/layout/layout-detail-page/layout-detail-page";
+import LayoutIndexPage from "../components/layout/layout-index-page/layout-index-page";
 import AuthorList from "../components/controlled-lists/author-list/author-list";
 import BookList from "../components/controlled-lists/book-list/book-list";
 
@@ -11,10 +11,10 @@ const Home: NextPage = () => {
       <Head>
         <title>Book Store</title>
       </Head>
-      <LayoutDetailPage>
+      <LayoutIndexPage>
         <BookList />
         <AuthorList />
-      </LayoutDetailPage>
+      </LayoutIndexPage>
     </Fragment>
   );
 };
