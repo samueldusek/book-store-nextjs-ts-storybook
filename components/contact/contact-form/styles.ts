@@ -1,6 +1,7 @@
 import { Classes, Styles } from "jss";
 import { createUseStyles } from "react-jss";
 import { ContactFormProps } from "./contact-form";
+import { CustomTheme } from "../../../store/theme-context";
 
 export type ContactFormClassNames =
   | "Form"
@@ -15,7 +16,7 @@ export type ContactFormStyles = Styles<
   ContactFormStylesProps
 >;
 
-const getStyles = {
+const getStyles: (theme: CustomTheme) => ContactFormStyles = (theme) => ({
   Form: {
     width: "100%",
     maxWidth: "600px",
@@ -24,6 +25,7 @@ const getStyles = {
       display: "block",
       marginBottom: "0.5rem",
       fontSize: "1.3rem",
+      color: theme.text.color.primary,
     },
     "& button": {
       display: "flex",
@@ -35,14 +37,14 @@ const getStyles = {
       fontSize: "1.2rem",
       textTransform: "uppercase",
       letterSpacing: "0.1rem",
-      color: "grey",
-      backgroundColor: "#f5f5f5",
+      color: theme.text.color.secondary,
+      backgroundColor: theme.background.color.secondary,
       border: "none",
       borderRadius: "15px",
-      boxShadow: "-3px -3px 14px #d5d5d5, 3px 3px 14px #ffffff",
+      boxShadow: `-3px -3px 14px ${theme.shadow.color.secondary}, 3px 3px 14px ${theme.shadow.color.primary}`,
       "&:hover": {
         cursor: "pointer",
-        color: "black",
+        color: theme.text.color.primary,
       },
       "& svg": {
         height: "1.3rem",
@@ -61,7 +63,9 @@ const getStyles = {
     "& input": {
       width: "100%",
       border: "0px",
-      borderBottom: "1px solid #d5d5d5",
+      color: theme.text.color.primary,
+      backgroundColor: theme.background.color.primary,
+      borderBottom: `1px solid ${theme.text.color.primary}`,
       outline: "0",
       fontSize: "1rem",
     },
@@ -70,11 +74,13 @@ const getStyles = {
     width: "100%",
     marginTop: "1rem",
     "& textarea": {
+      color: theme.text.color.primary,
+      backgroundColor: theme.background.color.secondary,
       width: "100%",
       padding: "1rem",
       border: "none",
       borderRadius: "20px",
-      boxShadow: "-3px -3px 14px #d5d5d5, 3px 3px 14px #ffffff",
+      boxShadow: `-3px -3px 14px ${theme.shadow.color.secondary}, 3px 3px 14px ${theme.shadow.color.primary}`,
       marginTop: "1rem",
       fontSize: "1rem",
       outline: "none",
@@ -82,7 +88,7 @@ const getStyles = {
     },
   },
   error: {
-    color: "#9e2a2b",
+    color: theme.text.color.warning,
     marginTop: "0.6rem",
     marginBottom: "0rem",
     display: "flex",
@@ -92,7 +98,7 @@ const getStyles = {
       marginRight: "0.2rem",
     },
   },
-};
+});
 
 const useContactFormStyles: (
   data?: any

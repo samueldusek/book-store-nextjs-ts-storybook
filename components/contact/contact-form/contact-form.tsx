@@ -1,5 +1,6 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
+import { useTheme } from "../../../store/theme-context";
 
 import useContactFormStyles from "./styles";
 
@@ -12,12 +13,13 @@ type ContactFormInputs = {
 export type ContactFormProps = {};
 
 const ContactForm = ({}: ContactFormProps) => {
+  const { theme } = useTheme();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<ContactFormInputs>();
-  const classes = useContactFormStyles();
+  const classes = useContactFormStyles({ theme });
 
   const onSubmit: SubmitHandler<ContactFormInputs> = (data) => {
     console.log(data);

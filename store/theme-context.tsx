@@ -6,6 +6,7 @@ export type CustomTheme = {
       primary: string;
       secondary: string;
       info: string;
+      warning: string;
     };
   };
   background: {
@@ -34,6 +35,7 @@ export const lightTheme: CustomTheme = {
       primary: "#000000",
       secondary: "#808080",
       info: "#A9A9A9",
+      warning: "#9e2a2b",
     },
   },
   background: {
@@ -56,6 +58,7 @@ export const darkTheme: CustomTheme = {
       primary: "#F5F7FA",
       secondary: "#E4E7EB",
       info: "#CBD2D9",
+      warning: "#ff8f73",
     },
   },
   background: {
