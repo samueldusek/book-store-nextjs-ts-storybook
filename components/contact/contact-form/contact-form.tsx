@@ -1,7 +1,7 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 import { useTheme } from "../../../store/theme-context";
-import { Fragment } from "react";
+import ErrorMsg from "./error-message/error-message";
 
 import useContactFormStyles from "./styles";
 
@@ -48,28 +48,7 @@ const ContactForm = ({}: ContactFormProps) => {
                 },
               })}
             />
-            <ErrorMessage
-              errors={errors}
-              name="email"
-              render={({ message }) => (
-                <p className={classes.error}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                  <span>{message}</span>
-                </p>
-              )}
-            />
+            <ErrorMsg errors={errors} name="email" />
           </div>
           <div className={classes.control}>
             <label>Your name</label>
@@ -84,28 +63,7 @@ const ContactForm = ({}: ContactFormProps) => {
                 },
               })}
             />
-            <ErrorMessage
-              errors={errors}
-              name="name"
-              render={({ message }) => (
-                <p className={classes.error}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                  <span>{message}</span>
-                </p>
-              )}
-            />
+            <ErrorMsg errors={errors} name="name" />
           </div>
         </div>
         <div className={classes.message}>
@@ -116,28 +74,7 @@ const ContactForm = ({}: ContactFormProps) => {
               required: "Please, insert your message.",
             })}
           ></textarea>
-          <ErrorMessage
-            errors={errors}
-            name="message"
-            render={({ message }) => (
-              <p className={classes.error}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-                <span>{message}</span>
-              </p>
-            )}
-          />
+          <ErrorMsg errors={errors} name="message" />
         </div>
         <button type="submit">
           <span>Send message</span>
