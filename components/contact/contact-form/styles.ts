@@ -2,6 +2,7 @@ import { Classes, Styles } from "jss";
 import { createUseStyles } from "react-jss";
 import { ContactFormProps } from "./contact-form";
 import { CustomTheme } from "../../../store/theme-context";
+import { getSizeMedia } from "../../../helpers/utils";
 
 export type ContactFormClassNames =
   | "Form"
@@ -50,11 +51,17 @@ const getStyles: (theme: CustomTheme) => ContactFormStyles = (theme) => ({
         height: "1.3rem",
       },
     },
+    [getSizeMedia.down("xs")]: {
+      padding: "0rem 2rem",
+    },
   },
   contactControls: {
     display: "grid",
     gridTemplateColumns: "repeat(2, auto)",
     gridColumnGap: "1rem",
+    [getSizeMedia.down("xs")]: {
+      gridTemplateColumns: "repeat(1, auto)",
+    },
   },
   control: {
     "& label": {
@@ -68,6 +75,9 @@ const getStyles: (theme: CustomTheme) => ContactFormStyles = (theme) => ({
       borderBottom: `1px solid ${theme.text.color.primary}`,
       outline: "0",
       fontSize: "1rem",
+      [getSizeMedia.down("xs")]: {
+        marginBottom: "1rem",
+      },
     },
   },
   message: {
