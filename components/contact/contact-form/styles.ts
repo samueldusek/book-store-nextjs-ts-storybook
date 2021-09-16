@@ -26,6 +26,9 @@ const getStyles: (theme: CustomTheme) => ContactFormStyles = (theme) => ({
     "& h1": {
       color: theme.text.color.primary,
     },
+    [getSizeMedia.down("xs")]: {
+      padding: "0rem 2rem",
+    },
   },
   Form: {
     width: "100%",
@@ -34,6 +37,9 @@ const getStyles: (theme: CustomTheme) => ContactFormStyles = (theme) => ({
       marginBottom: "0.5rem",
       fontSize: "1.3rem",
       color: theme.text.color.primary,
+      [getSizeMedia.down("xs")]: {
+        marginTop: "1.8rem",
+      },
     },
     "& button": {
       display: "flex",
@@ -58,9 +64,6 @@ const getStyles: (theme: CustomTheme) => ContactFormStyles = (theme) => ({
         height: "1.3rem",
       },
     },
-    [getSizeMedia.down("xs")]: {
-      padding: "0rem 2rem",
-    },
   },
   contactControls: {
     display: "grid",
@@ -82,9 +85,6 @@ const getStyles: (theme: CustomTheme) => ContactFormStyles = (theme) => ({
       borderBottom: `1px solid ${theme.text.color.primary}`,
       outline: "0",
       fontSize: "1rem",
-      [getSizeMedia.down("xs")]: {
-        marginBottom: "1rem",
-      },
     },
   },
   message: {
