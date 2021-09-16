@@ -9,7 +9,8 @@ export type ContactFormClassNames =
   | "contactControls"
   | "control"
   | "message"
-  | "error";
+  | "error"
+  | "contactWrapper";
 export type ContactFormClasses = Classes<ContactFormClassNames>;
 export type ContactFormStylesProps = ContactFormProps;
 export type ContactFormStyles = Styles<
@@ -18,10 +19,16 @@ export type ContactFormStyles = Styles<
 >;
 
 const getStyles: (theme: CustomTheme) => ContactFormStyles = (theme) => ({
-  Form: {
+  contactWrapper: {
     width: "100%",
     maxWidth: "600px",
     margin: "auto",
+    "& h1": {
+      color: theme.text.color.primary,
+    },
+  },
+  Form: {
+    width: "100%",
     "& label": {
       display: "block",
       marginBottom: "0.5rem",
