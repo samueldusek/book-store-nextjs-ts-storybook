@@ -2,8 +2,9 @@ import { Classes, Styles } from "jss";
 import { createUseStyles } from "react-jss";
 import { NavbarProps } from "./navbar";
 import { CustomTheme } from "../../../helpers/theme";
+import { getSizeMedia } from "../../../helpers/utils";
 
-export type NavbarClassNames = "Navbar";
+export type NavbarClassNames = "Navbar" | "smallNavbar";
 export type NavbarClasses = Classes<NavbarClassNames>;
 export type NavbarStylesProps = NavbarProps;
 export type NavbarStyles = Styles<NavbarClassNames, NavbarStylesProps>;
@@ -34,6 +35,17 @@ const getStyles: (theme: CustomTheme) => NavbarStyles = (theme) => ({
     },
     "& .active": {
       color: theme.text.color.primary,
+    },
+    "& nav": {
+      [getSizeMedia.down("xs")]: {
+        display: "none",
+      },
+    },
+  },
+  smallNavbar: {
+    display: "none",
+    [getSizeMedia.down("xs")]: {
+      display: "block",
     },
   },
 });
