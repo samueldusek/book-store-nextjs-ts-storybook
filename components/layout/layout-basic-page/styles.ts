@@ -1,6 +1,7 @@
 import { Classes, Styles } from "jss";
 import { createUseStyles } from "react-jss";
 import { LayoutProps } from "./layout-basic-page";
+import { getSizeMedia } from "../../../helpers/utils";
 
 export type LayoutBasicPageClassNames = "layoutBasicPage";
 export type LayoutBasicPageClasses = Classes<LayoutBasicPageClassNames>;
@@ -16,6 +17,9 @@ const getStyles = {
     width: "96%",
     margin: "auto",
     maxWidth: "1200px",
+    [getSizeMedia.down("xs")]: {
+      width: "88%",
+    },
   },
 };
 
