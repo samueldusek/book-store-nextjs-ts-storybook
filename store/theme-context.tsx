@@ -1,4 +1,5 @@
-import { FC, useState, createContext, useContext } from "react";
+import { FC, createContext, useContext } from "react";
+import useDarkMode from "../hooks/use-dark-mode";
 import { CustomTheme } from "../helpers/theme";
 import lightTheme from "../styles/themes/light-theme";
 import darkTheme from "../styles/themes/dark-theme";
@@ -18,11 +19,7 @@ const ThemeContext = createContext<ThemeContextType>({
 export const useTheme = () => useContext<ThemeContextType>(ThemeContext);
 
 export const MyThemeProvider: FC = (props) => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  const toggleDarkMode = () => {
-    setIsDarkMode((prevState) => !prevState);
-  };
+  const { isDarkMode, toggleDarkMode } = useDarkMode(false);
 
   const themeContext = {
     theme: isDarkMode ? darkTheme : lightTheme,
