@@ -1,7 +1,7 @@
 import { Classes, Styles } from "jss";
 import { createUseStyles } from "react-jss";
 import { PaginationProps } from "./pagination";
-import { CustomTheme } from "../../../store/theme-context";
+import { CustomTheme } from "../../../helpers/theme";
 
 export type PaginationClassNames = "Pagination";
 export type PaginationClasses = Classes<PaginationClassNames>;

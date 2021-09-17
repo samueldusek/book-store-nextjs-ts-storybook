@@ -1,6 +1,6 @@
 import { Classes, Styles } from "jss";
 import { createUseStyles } from "react-jss";
-import { CustomTheme } from "../../../store/theme-context";
+import { CustomTheme } from "../../../helpers/theme";
 import { AuthorCardProps } from "./author-card";
 
 export type AuthorCardClassNames = "Card" | "image" | "name";

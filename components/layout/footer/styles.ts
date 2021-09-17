@@ -1,7 +1,7 @@
 import { Classes, Styles } from "jss";
 import { createUseStyles } from "react-jss";
 import { FooterProps } from "./footer";
-import { CustomTheme } from "../../../store/theme-context";
+import { CustomTheme } from "../../../helpers/theme";
 
 export type FooterClassNames = "Footer";
 export type FooterClasses = Classes<FooterClassNames>;

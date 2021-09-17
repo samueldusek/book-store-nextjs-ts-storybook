@@ -1,27 +1,7 @@
 import { FC, useState, createContext, useContext } from "react";
-
-export type CustomTheme = {
-  text: {
-    color: {
-      primary: string;
-      secondary: string;
-      info: string;
-      warning: string;
-    };
-  };
-  background: {
-    color: {
-      primary: string;
-      secondary: string;
-    };
-  };
-  shadow: {
-    color: {
-      primary: string;
-      secondary: string;
-    };
-  };
-};
+import { CustomTheme } from "../helpers/theme";
+import lightTheme from "../styles/themes/light-theme";
+import darkTheme from "../styles/themes/dark-theme";
 
 type ThemeContextType = {
   theme: CustomTheme;
@@ -29,53 +9,7 @@ type ThemeContextType = {
   isDarkMode: boolean;
 };
 
-export const lightTheme: CustomTheme = {
-  text: {
-    color: {
-      primary: "#000000",
-      secondary: "#808080",
-      info: "#A9A9A9",
-      warning: "#9e2a2b",
-    },
-  },
-  background: {
-    color: {
-      primary: "#FFFFFF",
-      secondary: "#F5F5F5",
-    },
-  },
-  shadow: {
-    color: {
-      primary: "#D5D5D5",
-      secondary: "#FFFFFF",
-    },
-  },
-};
-
-export const darkTheme: CustomTheme = {
-  text: {
-    color: {
-      primary: "#F5F7FA",
-      secondary: "#E4E7EB",
-      info: "#CBD2D9",
-      warning: "#ff8f73",
-    },
-  },
-  background: {
-    color: {
-      primary: "#323F4B",
-      secondary: "#7B8794",
-    },
-  },
-  shadow: {
-    color: {
-      primary: "#1F2933",
-      secondary: "#3E4C59",
-    },
-  },
-};
-
-export const ThemeContext = createContext<ThemeContextType>({
+const ThemeContext = createContext<ThemeContextType>({
   theme: lightTheme,
   isDarkMode: false,
   toggleDarkMode: () => {},

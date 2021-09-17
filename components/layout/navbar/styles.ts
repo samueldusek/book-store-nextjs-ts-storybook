@@ -1,7 +1,7 @@
 import { Classes, Styles } from "jss";
 import { createUseStyles } from "react-jss";
 import { NavbarProps } from "./navbar";
-import { CustomTheme } from "../../../store/theme-context";
+import { CustomTheme } from "../../../helpers/theme";
 
 export type NavbarClassNames = "Navbar";
 export type NavbarClasses = Classes<NavbarClassNames>;

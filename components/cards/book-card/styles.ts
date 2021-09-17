@@ -1,7 +1,7 @@
 import { Classes, Styles } from "jss";
 import { createUseStyles } from "react-jss";
 import { BookCardProps } from "./book-card";
-import { CustomTheme } from "../../../store/theme-context";
+import { CustomTheme } from "../../../helpers/theme";
 
 export type BookCardClassNames = "Card" | "imageBox" | "textBox";
 export type BookCardClasses = Classes<BookCardClassNames>;

@@ -1,7 +1,7 @@
 import { Classes, Styles } from "jss";
 import { createUseStyles } from "react-jss";
 import { ContactFormProps } from "./contact-form";
-import { CustomTheme } from "../../../store/theme-context";
+import { CustomTheme } from "../../../helpers/theme";
 import { getSizeMedia } from "../../../helpers/utils";
 
 export type ContactFormClassNames =

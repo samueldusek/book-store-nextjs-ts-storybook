@@ -1,7 +1,7 @@
 import { Classes, Styles } from "jss";
 import { createUseStyles } from "react-jss";
 import { MainAuthorCardProps } from "./main-author-card";
-import { CustomTheme } from "../../../store/theme-context";
+import { CustomTheme } from "../../../helpers/theme";
 
 export type MainAuthorCardClassNames =
   | "MainCard"

@@ -1,7 +1,7 @@
 import { Classes, Styles } from "jss";
 import { createUseStyles } from "react-jss";
 import { BookListProps } from "./book-list";
-import { CustomTheme } from "../../../store/theme-context";
+import { CustomTheme } from "../../../helpers/theme";
 
 export type BookListClassNames = "list" | "title";
 export type BookListClasses = Classes<BookListClassNames>;
